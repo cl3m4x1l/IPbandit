@@ -1,6 +1,8 @@
 # IPbandit
 IP blacklist aggregator for web server
 
-Licence : GNU GPL v3
+## Warning : unstable
+wait, work in progress
 
-Work in progress
+### Licence : GNU GPL v3
+
