@@ -3,6 +3,8 @@
 # IPBANDIT
 IP blacklist aggregator
 
+*currently in alpha version*
+
 About
 ----
 IPbandit is a tool that protects you from malicious IP addresses and CIDR blocks (IPv4/IPv6).\
