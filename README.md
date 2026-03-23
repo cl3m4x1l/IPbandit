@@ -32,6 +32,8 @@ Download the following files directly
 - https://github.com/cl3m4x1l/IPbandit/blob/main/list.d/IPbandit_ipv4.txt
 - https://github.com/cl3m4x1l/IPbandit/blob/main/list.d/IPbandit_ipv4_subnet.txt
 
+or install on your machine
+
 **Warning: You must be root or use the sudo command**
 
 Navigate to the directory where you want to install it (for example, in /etc/).
