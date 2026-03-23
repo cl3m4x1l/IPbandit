@@ -42,8 +42,6 @@ mv IPbandit-main IPbandit
 ```
 
 #### Access rights 
-Assign the correct access rights
-
 Navigate to the parent directory
 
 ```bash
@@ -89,6 +87,8 @@ After execution, you will find the generated files in the list.d directory, whic
 ## CUSTOMIZE
 
 wait, this part isn't over yet....
+
+__Important !__ Name your files with the .list extension.
 
 ### Static lists
 You can add your own lists to the extras/list.d directory.
