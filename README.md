@@ -1,10 +1,12 @@
 ![Logo](https://www.infogiciel.com/ipbandit/logo.png)
 
 # IPbandit
-IP blacklist aggregator for web server
+IP blacklist aggregator
 
 About
 ----
+IPbandit is a tool to protect you from malicious IP addresses detected by communities and by your machine.
+
 
 ## Warning : unstable
 wait, work in progress
