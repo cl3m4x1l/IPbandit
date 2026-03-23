@@ -1,5 +1,16 @@
 #!/bin/bash
 
+######################################################################
+#
+# IPbandit : IP blacklist aggregator
+#
+######################################################################
+
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+
+DIR=$(pwd)
+
 # Calculate execution time
 start_time=$(date +%s)
 echo "IPbandit Start"
