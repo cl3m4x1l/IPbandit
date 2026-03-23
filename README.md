@@ -46,7 +46,7 @@ Navigate to the parent directory
 
 ```bash
 chown -R root:root IPbandit
-chmod +x IPbandit.sh
+chmod +x IPbandit/IPbandit.sh
 ```
 
 
