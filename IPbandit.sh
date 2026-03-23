@@ -20,15 +20,9 @@ SOURCES=(
 )
 
 
-# Array lists in extras directory
-LISTS=(
-myfail2ban.list
-#censys-scanner.list
-);
+# Copy list files in directory extras/list.d/ into directory to run
+cp "/etc/IPbandit/extras/list.d"/*.list "/etc/IPbandit/list.d"/ 2>/dev/null
 
-for entry in "${LISTS[@]}"; do
- cp "/etc/IPbandit/extras/list.d/$entry" "/etc/IPbandit/list.d/$entry"
-done
 
 # Boucle sur chaque entrée du tableau
 for entry in "${SOURCES[@]}"; do
