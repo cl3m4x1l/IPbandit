@@ -18,7 +18,7 @@ Roadmap
 ----
 - 2026-01 Init project
 - 2026-03 Share on github
-- 2026-03 Add IPv6
+- 2026-04 Add IPv6
 - coming soon, extras option Fail2ban
 - coming soon, extras option IPset / Iptables
 - coming soon, extras option UFW / Firewalld
