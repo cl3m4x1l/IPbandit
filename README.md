@@ -20,29 +20,33 @@ Roadmap
 - coming soon, extras option UFW / Firewalld
 
 
-### INSTALL
+### HOW TO
 **Warning: You must be root or use the sudo command**
 
 Navigate to the directory where you want to install it (for example, in /etc/).
 
-#### Git clone project
+#### INSTALL
+
+##### Git clone project
 ```bash
 git clone https://github.com/cl3m4x1l/IPbandit.git
 ```
 
-#### Or download zip with wget
+##### Or download zip with wget
 ```bash
 wget https://github.com/cl3m4x1l/IPbandit/archive/refs/heads/main.zip
 unzip main.zip 
 mv IPbandit-main IPbandit
 ```
 
-You can choose to run the script manually.
+#### RUN
+
+##### You can choose to run the script manually.
 ```bash
 ./IPbandit.sh
 ```
 
-Or automate it using cron. You can use `crontab -e`, but I recommend creating a file in `/etc/cron.d`.
+##### Or automate it using cron. You can use `crontab -e`, but I recommend creating a file in `/etc/cron.d`.
 ```bash
 touch /etc/crond.d/IPbandit
 ```
