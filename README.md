@@ -21,6 +21,7 @@ Roadmap
 
 
 ### HOW TO
+----
 **Warning: You must be root or use the sudo command**
 
 Navigate to the directory where you want to install it (for example, in /etc/).
