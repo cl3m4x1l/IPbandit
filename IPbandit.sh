@@ -27,7 +27,7 @@ myfail2ban.list
 );
 
 for entry in "${LISTS[@]}"; do
- cp "/etc/IPbandit/extras/lists/$entry" "/etc/IPbandit/list.d/$entry"
+ cp "/etc/IPbandit/extras/list.d/$entry" "/etc/IPbandit/list.d/$entry"
 done
 
 # Boucle sur chaque entrée du tableau

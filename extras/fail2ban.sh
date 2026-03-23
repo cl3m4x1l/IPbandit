@@ -16,7 +16,7 @@ fi
 
 DIR=$(pwd)
 
-OUTPUT_FILE="$DIR/lists/myfail2ban.list"
+OUTPUT_FILE="$DIR/list.d/myfail2ban.list"
 
 JAILS=$(fail2ban-client status | grep "Jail list" | cut -d: -f2 | tr ',' ' ')
 
