@@ -21,9 +21,9 @@ Roadmap
 
 
 ### INSTALL
-Navigate to the directory where you want to install it (for example, in /etc/).
+**Warning: You must be root or use the sudo command**
 
-**Warning**: You must be root or use the sudo command
+Navigate to the directory where you want to install it (for example, in /etc/).
 
 #### Git clone project
 ```bash
@@ -42,7 +42,20 @@ You can choose to run the script manually.
 ./IPbandit.sh
 ```
 
-Or to automate using cron
+Or automate it using cron. You can use `crontab -e`, but I recommend creating a file in `/etc/cron.d`.
+```bash
+touch /etc/crond.d/IPbandit
+```
+
+Edit the file
+```bash
+nano /etc/crond.d/IPbandit
+```
+
+Add this line, and adjust time
+```bash
+30 05 * * * root /etc/IPbandit/IPbandit.sh >> /var/log/cron.log 2>&1
+```
 
 
 
