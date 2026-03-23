@@ -64,4 +64,10 @@ Add this line, and adjust time
 ```
 
 
-
+### Results
+After execution, you will find the generated files in the list.d directory, which you can then use for your services.
+- IPbandit_all.txt
+- IPbandit_ipv4.txt
+- IPbandit_ipv4_subnet.txt
+- IPbandit_ipv6.txt
+- IPbandit_ipv6_subnet.txt
