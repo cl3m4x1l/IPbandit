@@ -1,6 +1,6 @@
 ![Logo](https://www.infogiciel.com/ipbandit/logo.png)
 
-# IPbandit
+# IPBANDIT
 IP blacklist aggregator
 
 About
@@ -27,7 +27,7 @@ Roadmap
 
 Navigate to the directory where you want to install it (for example, in /etc/).
 
-### INSTALL
+### Install
 
 #### Git clone project
 ```bash
@@ -41,7 +41,7 @@ unzip main.zip
 mv IPbandit-main IPbandit
 ```
 
-### RUN
+### Run
 
 #### You can choose to run the script manually.
 ```bash
