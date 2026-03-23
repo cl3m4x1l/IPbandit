@@ -41,6 +41,19 @@ unzip main.zip
 mv IPbandit-main IPbandit
 ```
 
+#### Access rights 
+Assign the correct access rights
+
+Navigate to the parent directory
+
+```bash
+chmown -R root:root IPbandit
+chmod -R 755 IPbandit
+chmod +x IPbandit.sh
+chmod -x extras/fail2ban.sh
+```
+
+
 ### Run
 
 #### You can choose to run the script manually.
@@ -71,3 +84,14 @@ After execution, you will find the generated files in the list.d directory, whic
 - IPbandit_ipv4_subnet.txt
 - IPbandit_ipv6.txt
 - IPbandit_ipv6_subnet.txt
+
+
+## CUSTOMIZE
+
+wait, this part isn't over yet....
+
+### Static lists
+You can add your own lists to the extras/list.d directory.
+
+### Dynamic lists
+You can choose which lists to download by editing the IPbandit.sh file.
