@@ -23,7 +23,7 @@ Roadmap
 ### INSTALL
 Navigate to the directory where you want to install it (for example, in /etc/).
 
-<p style="color:orange">__Warning:__</p> You must be root or use the sudo command
+<p style="color:orange">Warning:</p> You must be root or use the sudo command
 
 #### Git clone project
 ```bash
