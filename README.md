@@ -31,6 +31,7 @@ Navigate to the directory where you want to install it (for example, in /etc/).
 
 #### Git clone project
 ```bash
+cd /etc/
 git clone https://github.com/cl3m4x1l/IPbandit.git
 ```
 
@@ -38,13 +39,14 @@ git clone https://github.com/cl3m4x1l/IPbandit.git
 ```bash
 wget https://github.com/cl3m4x1l/IPbandit/archive/refs/heads/main.zip
 unzip main.zip 
-mv IPbandit-main IPbandit
+mv IPbandit-main /etc/IPbandit
 ```
 
 #### Access rights 
 Navigate to the parent directory
 
 ```bash
+cd /etc/
 chown -R root:root IPbandit
 chmod +x IPbandit/IPbandit.sh
 ```
@@ -54,6 +56,7 @@ chmod +x IPbandit/IPbandit.sh
 
 #### You can choose to run the script manually.
 ```bash
+cd /etc/IPbandit/
 ./IPbandit.sh
 ```
 
