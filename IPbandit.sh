@@ -6,7 +6,7 @@ echo "IPbandit Start"
 
 
 # Directory banned list storage
-cd "/etc/infogiciel/IPbandit/list.d" 
+cd "/etc/IPbandit/list.d" 
 rm -f *.list
 
 # Array sources list : "name|url"
@@ -22,12 +22,12 @@ SOURCES=(
 
 # Array lists in extras directory
 LISTS=(
-infogiciel.list
+myfail2ban.list
 #censys-scanner.list
 );
 
 for entry in "${LISTS[@]}"; do
- cp "/etc/infogiciel/IPbandit/extras/lists/$entry" "/etc/infogiciel/IPbandit/list.d/$entry"
+ cp "/etc/IPbandit/extras/lists/$entry" "/etc/IPbandit/list.d/$entry"
 done
 
 # Boucle sur chaque entrée du tableau
@@ -79,14 +79,14 @@ if [[ -z "$INPUT_FILE" || ! -f "$INPUT_FILE" ]]; then
 fi
 
 IPV4_FILE="IPbandit_ipv4.txt"
-#IPV6_FILE="IPbandit_ipv6.txt"
+IPV6_FILE="IPbandit_ipv6.txt"
 IPV4_SUBNET_FILE="IPbandit_ipv4_subnet.txt"
-#IPV6_SUBNET_FILE="IPbandit_ipv6_subnet.txt"
+IPV6_SUBNET_FILE="IPbandit_ipv6_subnet.txt"
 
 > "$IPV4_FILE"
-#> "$IPV6_FILE"
+> "$IPV6_FILE"
 > "$IPV4_SUBNET_FILE"
-#> "$IPV6_SUBNET_FILE"
+> "$IPV6_SUBNET_FILE"
 
 TOTAL_LINES=$(wc -l < "$INPUT_FILE")
 CURRENT=0
@@ -122,13 +122,12 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     elif [[ $line =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
         echo "$line" >> "$IPV4_FILE"
 
-    # IPV6 OPTIONS
     # IPv6 subnet
-    #elif [[ $line =~ ^([0-9a-fA-F:]+)/[0-9]{1,3}$ ]]; then
-    #    echo "$line" >> "$IPV6_SUBNET_FILE"
+    elif [[ $line =~ ^([0-9a-fA-F:]+)/[0-9]{1,3}$ ]]; then
+        echo "$line" >> "$IPV6_SUBNET_FILE"
     # IPv6 simple
-    #elif [[ $line =~ ^[0-9a-fA-F:]+$ ]]; then
-    #    echo "$line" >> "$IPV6_FILE"
+    elif [[ $line =~ ^[0-9a-fA-F:]+$ ]]; then
+        echo "$line" >> "$IPV6_FILE"
 
     fi
 
@@ -160,8 +159,8 @@ echo " Summary :"
 echo "--------------------------------------"
 echo "IPv4 simples   : $IPV4_COUNT"
 echo "IPv4 subnet    : $IPV4_SUBNET_COUNT"
-#echo "IPv6 simples        : $IPV6_COUNT"
-#echo "IPv6 avec subnet    : $IPV6_SUBNET_COUNT"
+echo "IPv6 simples        : $IPV6_COUNT"
+echo "IPv6 avec subnet    : $IPV6_SUBNET_COUNT"
 echo "--------------------------------------"
 echo "Finish."
 
