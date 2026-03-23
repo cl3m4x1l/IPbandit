@@ -5,7 +5,8 @@ IP blacklist aggregator
 
 About
 ----
-IPbandit is a tool that protects you from malicious IP addresses and CIDR blocks (IPv4/IPv6). 
+IPbandit is a tool that protects you from malicious IP addresses and CIDR blocks (IPv4/IPv6).
+ 
 IPbandit aggregates several blacklists built by communities. You can choose your lists, add or remove them. And you can add your own blacklists.
 
 ### Licence : GNU GPL v3
@@ -22,6 +23,8 @@ Roadmap
 
 ### INSTALL
 Navigate to the directory where you want to install it (for example, in /etc/).
+
+Warning: You must be root or use the sudo command
 
 #### Git clone project
 ```bash
