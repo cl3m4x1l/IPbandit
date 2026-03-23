@@ -17,7 +17,7 @@ wait, work in progress
 
 Roadmap
 ----
-- Core add IPv6
+- Add IPv6
 - extras option Fail2ban
 - extras option IPset / Iptables
 - extras option UFW / Firewalld
