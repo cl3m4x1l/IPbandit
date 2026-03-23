@@ -21,15 +21,26 @@ Roadmap
 
 
 ### INSTALL
+Navigate to the directory where you want to install it (for example, in /etc/).
 
-#### clone project
+#### Git clone project
 ```bash
 git clone https://github.com/cl3m4x1l/IPbandit.git
 ```
 
-#### wget
+#### Or download zip with wget
 ```bash
 wget https://github.com/cl3m4x1l/IPbandit/archive/refs/heads/main.zip
+unzip main.zip 
+mv IPbandit-main IPbandit
 ```
+
+You can choose to run the script manually.
+```bash
+./IPbandit.sh
+```
+
+Or to automate using cron
+
 
 
