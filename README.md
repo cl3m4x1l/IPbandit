@@ -45,10 +45,8 @@ mv IPbandit-main IPbandit
 Navigate to the parent directory
 
 ```bash
-chmown -R root:root IPbandit
-chmod -R 755 IPbandit
+chown -R root:root IPbandit
 chmod +x IPbandit.sh
-chmod -x extras/fail2ban.sh
 ```
 
 
