@@ -39,15 +39,12 @@ while IFS= read -r url; do
     # Ignore lignes vides et commentaires
     [[ -z "$url" || "$url" =~ ^# ]] && continue
 
-    echo "Téléchargement de $url ..."
+    echo "Download $url ..."
 
     curl -fsSL --retry 3 "$url" -o "${i}.list"
 
     if [ $? -eq 0 ]; then
-        echo "Enregistré sous ${i}.list"
         ((i++))
-    else
-        echo "Erreur lors du téléchargement de $url"
     fi
 
 done < "$BASEDIR/IPbandit_custom.txt"
@@ -65,7 +62,6 @@ ALL_LISTS_FILE="IPbandit_all.txt"
 > "$ALL_LISTS_FILE"
 
 # Boucle sur tous les fichiers .list du répertoire courant
-#for file in "$OUTPUT_DIR/"*.list; do
 for file in *.list; do
     # Vérifie qu'il existe au moins un fichier correspondant
     [ -e "$file" ] || continue
@@ -78,9 +74,10 @@ echo "Concat finished in $ALL_LISTS_FILE"
 
 
 
-INPUT_FILE="$ALL_LISTS_FILE"
+sed -e 's/#.*//' -e 's/;.*//' -e 's/[[:space:]]//g' -e '/^$/d' "$ALL_LISTS_FILE" | sort -u > "tmp.txt" && mv "tmp.txt" "$ALL_LISTS_FILE"
 
-if [[ -z "$INPUT_FILE" || ! -f "$INPUT_FILE" ]]; then
+
+if [[ -z "$ALL_LISTS_FILE" || ! -f "$ALL_LISTS_FILE" ]]; then
     echo "Usage: $0 <input_file>"
     exit 1
 fi
@@ -95,7 +92,7 @@ IPV6_SUBNET_FILE="IPbandit_ipv6_subnet.txt"
 > "$IPV4_SUBNET_FILE"
 > "$IPV6_SUBNET_FILE"
 
-TOTAL_LINES=$(wc -l < "$INPUT_FILE")
+TOTAL_LINES=$(wc -l < "$ALL_LISTS_FILE")
 CURRENT=0
 
 # Fonction barre de progression
@@ -118,7 +115,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 
     # Nettoyage
     line="${line%%#*}"                # Supprimer commentaire
-    line="$(echo "$line" | xargs)"    # Trim
+    line="$(echo "$line" | xargs -0)"    # Trim
     [[ -z "$line" ]] && continue
 
     # IPv4 subnet
@@ -141,20 +138,13 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     # Afficher progression toutes les 100 lignes (réduit CPU)
     if (( CURRENT % 100 == 0 )); then
         progress_bar "$CURRENT" "$TOTAL_LINES"
-        #sleep 0.01   # Petite pause pour éviter 100% CPU
+        sleep 0.01   # Petite pause pour éviter 100% CPU
     fi
 
-done < "$INPUT_FILE"
+done < "$ALL_LISTS_FILE"
 
 # Barre finale 100%
 progress_bar "$TOTAL_LINES" "$TOTAL_LINES"
-
-sort -u -o "$IPV4_FILE" "$IPV4_FILE"
-sort -u -o "$IPV6_FILE" "$IPV6_FILE"
-sort -u -o "$IPV4_SUBNET_FILE" "$IPV4_SUBNET_FILE"
-sort -u -o "$IPV6_SUBNET_FILE" "$IPV6_SUBNET_FILE"
-
-
 
 IPV4_COUNT=$(wc -l < "$IPV4_FILE")
 IPV6_COUNT=$(wc -l < "$IPV6_FILE")
