@@ -73,6 +73,8 @@ chmod +x IPbandit/IPbandit.sh
 cd /etc/IPbandit/
 ./IPbandit.sh
 ```
+Using the default lists, the script takes approximately 30 minutes for around 200,000 email-spoofing IP addresses.
+
 
 #### Or automate it using cron. You can use `crontab -e`, but I recommend creating a file in `/etc/cron.d`.
 ```bash
