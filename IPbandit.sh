@@ -27,37 +27,32 @@ echo "IPbandit Start"
 cd "$BASEDIR/list.d" 
 rm -f *.list
 
-# Array sources list : "name|url"
-SOURCES=(
-"get_bruteforce|http://lists.blocklist.de/lists/bruteforcelogin.txt"
-#"get_abuser|https://iplists.firehol.org/files/firehol_abusers_1d.netset"
-#"get_datashield|https://raw.githubusercontent.com/duggytuxy/Data-Shield_IPv4_Blocklist/refs/heads/main/prod_data-shield_ipv4_blocklist.txt"
-#"get_ipsum|https://raw.githubusercontent.com/stamparm/ipsum/master/levels/3.txt"
-#"get_blocklistde|https://lists.blocklist.de/lists/all.txt"
-#"get_uceprotect|http://wget-mirrors.uceprotect.net/rbldnsd-all/dnsbl-1.uceprotect.net.gz"
-)
-
-
 # Copy list files in directory extras/list.d/ into directory to run
 cp "$BASEDIR/extras/list.d"/*.list "$BASEDIR/list.d"/ 2>/dev/null
 
+i=1
 
-# Boucle sur chaque entrée du tableau
-for entry in "${SOURCES[@]}"; do
+while IFS= read -r url; do
+    # Supprime les espaces en début/fin
+    url="$(echo "$url" | xargs)"
 
-    # Séparation nom et url
-    IFS="|" read -r name url <<< "$entry"
+    # Ignore lignes vides et commentaires
+    [[ -z "$url" || "$url" =~ ^# ]] && continue
 
-    output_file="${name}.list"
+    echo "Téléchargement de $url ..."
 
-    # Téléchargement avec curl
-    if curl -fsSL "$url" -o "$output_file"; then
-        echo "OK : $output_file donwloaded"
+    curl -fsSL --retry 3 "$url" -o "${i}.list"
+
+    if [ $? -eq 0 ]; then
+        echo "Enregistré sous ${i}.list"
+        ((i++))
     else
-        echo "ERROR download :  $url"
+        echo "Erreur lors du téléchargement de $url"
     fi
 
-done
+done < "$BASEDIR/IPbandit_custom.txt"
+
+
 
 echo "Download lists finished"
 
