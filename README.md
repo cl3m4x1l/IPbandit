@@ -34,6 +34,9 @@ Download the following files directly
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_all.txt
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv4.txt
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv4_subnet.txt
+- https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv6.txt
+- https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv6_subnet.txt
+
 
 or install on your machine
 
