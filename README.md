@@ -108,10 +108,3 @@ __Important !__ Name your files with the .list extension.
 ### External lists
 You can choose which lists to download by editing the IPbandit_custom.sh file.
 
-
-### Thanks
-- https://www.blocklist.de/
-- https://iplists.firehol.org/
-- https://www.uceprotect.net/
-- https://github.com/stamparm/ipsum
-- https://github.com/duggytuxy/Data-Shield_IPv4_Blocklist
