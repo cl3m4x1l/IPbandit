@@ -3,7 +3,7 @@
 # IPBANDIT
 IP blacklist aggregator
 
-*currently in alpha version v0.0.4*
+*currently Version 1.0 __alpha__*
 
 About
 ----
@@ -16,10 +16,12 @@ GNU GPLv3
 
 Roadmap
 ----
-- 2026-01 Init project
-- 2026-02 Share on github
-- 2026-03 Add IPv6
-- 2026-04 Add custom file
+- 2026-01 Init project, share on github
+- 2026-02 Add IPv6, add custom config file
+- 2026-03 Version 1.0 ALPHA, NIGTHLY
+- 2026-04 Version 1.0 BETA
+- 2026-05 Version 1.0 RC
+- 2026-06 Version 1.0 STABLE
 - coming soon, extras option Fail2ban
 - coming soon, extras option IPset / Iptables
 - coming soon, extras option UFW / Firewalld
