@@ -31,9 +31,9 @@ Roadmap
 
 You can use our lists generated directly from our web servers (default configuration) without installation.\
 Download the following files directly
-- https://github.com/cl3m4x1l/IPbandit/blob/main/list.d/IPbandit_all.txt
-- https://github.com/cl3m4x1l/IPbandit/blob/main/list.d/IPbandit_ipv4.txt
-- https://github.com/cl3m4x1l/IPbandit/blob/main/list.d/IPbandit_ipv4_subnet.txt
+- https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_all.txt
+- https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv4.txt
+- https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv4_subnet.txt
 
 or install on your machine
 
