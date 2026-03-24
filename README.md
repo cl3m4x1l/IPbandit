@@ -3,7 +3,7 @@
 # IPBANDIT
 IP blacklist aggregator
 
-*currently Version 1.0 __alpha__*
+*currently Version 1.0 __Alpha__*
 
 About
 ----
