@@ -99,12 +99,17 @@ After execution, you will find the generated files in IPbandit/list.d directory,
 
 ## CUSTOMIZE
 
-wait, this part isn't over yet....
-
+### Personnal lists
+You can add your own lists to the extras/list.d directory.
 __Important !__ Name your files with the .list extension.
 
-### Static lists
-You can add your own lists to the extras/list.d directory.
+### External lists
+You can choose which lists to download by editing the IPbandit_custom.sh file.
 
-### Dynamic lists
-You can choose which lists to download by editing the IPbandit.sh file.
+
+### Thanks
+- https://www.blocklist.de/
+- https://iplists.firehol.org/
+- https://www.uceprotect.net/
+- https://github.com/stamparm/ipsum
+- https://github.com/duggytuxy/Data-Shield_IPv4_Blocklist

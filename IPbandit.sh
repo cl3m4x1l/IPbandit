@@ -141,7 +141,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     # Afficher progression toutes les 100 lignes (réduit CPU)
     if (( CURRENT % 100 == 0 )); then
         progress_bar "$CURRENT" "$TOTAL_LINES"
-        sleep 0.01   # Petite pause pour éviter 100% CPU
+        #sleep 0.01   # Petite pause pour éviter 100% CPU
     fi
 
 done < "$INPUT_FILE"
