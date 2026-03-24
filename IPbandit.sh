@@ -8,8 +8,15 @@
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
+BASEDIR=$(readlink -f $0 | xargs dirname)
 
-DIR=$(pwd)
+
+if ! command -v curl >/dev/null; then
+        echo "ERROR : You need to install package curl"
+        exit 1
+fi
+
+
 
 # Calculate execution time
 start_time=$(date +%s)
@@ -17,7 +24,7 @@ echo "IPbandit Start"
 
 
 # Directory banned list storage
-cd "/etc/IPbandit/list.d" 
+cd "$BASEDIR/list.d" 
 rm -f *.list
 
 # Array sources list : "name|url"
@@ -32,7 +39,7 @@ SOURCES=(
 
 
 # Copy list files in directory extras/list.d/ into directory to run
-cp "/etc/IPbandit/extras/list.d"/*.list "/etc/IPbandit/list.d"/ 2>/dev/null
+cp "$BASEDIR/extras/list.d"/*.list "$BASEDIR/list.d"/ 2>/dev/null
 
 
 # Boucle sur chaque entrée du tableau
@@ -148,26 +155,29 @@ done < "$INPUT_FILE"
 progress_bar "$TOTAL_LINES" "$TOTAL_LINES"
 
 sort -u -o "$IPV4_FILE" "$IPV4_FILE"
-#sort -u -o "$IPV6_FILE" "$IPV6_FILE"
+sort -u -o "$IPV6_FILE" "$IPV6_FILE"
 sort -u -o "$IPV4_SUBNET_FILE" "$IPV4_SUBNET_FILE"
-#sort -u -o "$IPV6_SUBNET_FILE" "$IPV6_SUBNET_FILE"
+sort -u -o "$IPV6_SUBNET_FILE" "$IPV6_SUBNET_FILE"
 
 
 
 IPV4_COUNT=$(wc -l < "$IPV4_FILE")
-#IPV6_COUNT=$(wc -l < "$IPV6_FILE")
+IPV6_COUNT=$(wc -l < "$IPV6_FILE")
 IPV4_SUBNET_COUNT=$(wc -l < "$IPV4_SUBNET_FILE")
-#IPV6_SUBNET_COUNT=$(wc -l < "$IPV6_SUBNET_FILE")
+IPV6_SUBNET_COUNT=$(wc -l < "$IPV6_SUBNET_FILE")
 
-echo "--------------------------------------"
-echo " Summary :"
 echo "--------------------------------------"
 echo "IPv4 simples   : $IPV4_COUNT"
 echo "IPv4 subnet    : $IPV4_SUBNET_COUNT"
 echo "IPv6 simples        : $IPV6_COUNT"
 echo "IPv6 avec subnet    : $IPV6_SUBNET_COUNT"
 echo "--------------------------------------"
-echo "Finish."
+
+
+# Directory banned list storage
+cd "$BASEDIR/list.d" 
+rm -f *.list
+
 
 
 #Calculate execution time
