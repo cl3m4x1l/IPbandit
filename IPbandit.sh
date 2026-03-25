@@ -96,7 +96,7 @@ echo "Concat finished in $ALL_LISTS_FILE"
 
 
 
-sed -e 's/#.*//' -e 's/;.*//' -e 's/!.*//' -e 's/\$.*//' -e 's/:.*//' -e 's/[[:space:]]//g' -e '/^$/d' "$ALL_LISTS_FILE" | sort -u > "tmp.txt" && mv "tmp.txt" "$ALL_LISTS_FILE"
+sed -e 's/#.*//' -e 's/;.*//' -e 's/!.*//' -e 's/\$.*//' -e 's/^:.*//' -e 's/[[:space:]]//g' -e '/^$/d' "$ALL_LISTS_FILE" | sort -u > "tmp.txt" && mv "tmp.txt" "$ALL_LISTS_FILE"
 
 
 if [[ -z "$ALL_LISTS_FILE" || ! -f "$ALL_LISTS_FILE" ]]; then
