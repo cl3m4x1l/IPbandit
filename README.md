@@ -91,7 +91,7 @@ nano /etc/crond.d/IPbandit
 
 Add this line, and adjust time
 ```bash
-30 05 * * * root /etc/IPbandit/IPbandit.sh >> /var/log/cron.log 2>&1
+30 05 * * * root /etc/IPbandit/IPbandit.sh 2>&1
 ```
 
 
