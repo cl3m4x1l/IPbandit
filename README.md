@@ -111,5 +111,5 @@ You can add your own lists to the extras/list.d directory.
 __Important !__ Name your files with the .list extension.
 
 ### External lists
-You can choose which lists to download by editing the IPbandit_custom.sh file.
+You can choose which lists to download by editing the IPbandit_custom.txt file.
 
