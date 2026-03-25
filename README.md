@@ -56,9 +56,10 @@ git clone https://github.com/cl3m4x1l/IPbandit.git
 
 #### Or download zip with wget
 ```bash
+cd /opt/clemaxil/
 wget https://github.com/cl3m4x1l/IPbandit/archive/refs/heads/main.zip
 unzip main.zip 
-mv IPbandit-main /opt/clemaxil/IPbandit
+mv IPbandit-main IPbandit
 ```
 
 #### Access rights 
