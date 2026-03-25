@@ -1,5 +1,5 @@
 # SOURCES LISTS
-# only text file or gz ... other is not accepted
+# Only text file or gz ... other is not accepted
 # Add, delete, modify... one source by line
 https://lists.blocklist.de/lists/all.txt
 http://wget-mirrors.uceprotect.net/rbldnsd-all/dnsbl-1.uceprotect.net.gz

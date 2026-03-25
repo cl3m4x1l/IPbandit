@@ -17,7 +17,6 @@ if ! command -v curl >/dev/null; then
 fi
 
 
-
 # Calculate execution time
 start_time=$(date +%s)
 echo "IPbandit Start"
