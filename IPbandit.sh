@@ -174,10 +174,10 @@ IPV4_SUBNET_COUNT=$(wc -l < "$IPV4_SUBNET_FILE")
 IPV6_SUBNET_COUNT=$(wc -l < "$IPV6_SUBNET_FILE")
 
 echo "--------------------------------------"
-echo "IPv4 simples   : $IPV4_COUNT"
-echo "IPv4 subnet    : $IPV4_SUBNET_COUNT"
-echo "IPv6 simples        : $IPV6_COUNT"
-echo "IPv6 avec subnet    : $IPV6_SUBNET_COUNT"
+echo "IPv4 simple   : $IPV4_COUNT"
+echo "IPv4 subnet   : $IPV4_SUBNET_COUNT"
+echo "IPv6 simple   : $IPV6_COUNT"
+echo "IPv6 subnet   : $IPV6_SUBNET_COUNT"
 echo "--------------------------------------"
 
 
