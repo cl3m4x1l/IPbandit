@@ -10,6 +10,8 @@ About
 IPbandit is a tool that protects you from malicious IP addresses and CIDR blocks (IPv4/IPv6).\
 IPbandit aggregates several blacklists built by communities. You can choose your lists, add or remove them. And you can add your own blacklists.
 
+By using the default lists, you will already be blocking approximately 250,000 malicious email IP addresses.
+
 Licence 
 ----
 GNU GPLv3
@@ -76,8 +78,6 @@ chmod +x IPbandit/IPbandit.sh
 cd /etc/IPbandit/
 ./IPbandit.sh
 ```
-Using the default lists, the script takes approximately 30 minutes for around 200,000 email-spoofing IP addresses.
-
 
 #### Or automate it using cron. You can use `crontab -e`, but I recommend creating a file in `/etc/cron.d`.
 ```bash
