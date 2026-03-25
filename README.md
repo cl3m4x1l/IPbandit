@@ -10,7 +10,7 @@ About
 IPbandit is a tool that protects you from malicious IP addresses and CIDR blocks (IPv4/IPv6).\
 IPbandit aggregates several blacklists built by communities. You can choose your lists, add or remove them. And you can add your own blacklists.
 
-By using the default lists, you will already be blocking approximately 250,000 malicious IP addresses.
+By using the default lists, you will already be blocking approximately 300,000 Bandits.
 
 Licence 
 ----
