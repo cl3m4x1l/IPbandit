@@ -50,7 +50,7 @@ Navigate to the directory where you want to install it (for example, in /etc/).
 
 #### Git clone project
 ```bash
-cd /opt/
+cd /opt/clemaxil/
 git clone https://github.com/cl3m4x1l/IPbandit.git
 ```
 
@@ -58,14 +58,14 @@ git clone https://github.com/cl3m4x1l/IPbandit.git
 ```bash
 wget https://github.com/cl3m4x1l/IPbandit/archive/refs/heads/main.zip
 unzip main.zip 
-mv IPbandit-main /opt/IPbandit
+mv IPbandit-main /opt/clemaxil/IPbandit
 ```
 
 #### Access rights 
 Navigate to the parent directory
 
 ```bash
-cd /opt/
+cd /opt/clemaxil/
 chown -R root:root IPbandit
 chmod +x IPbandit/IPbandit.sh
 ```
@@ -75,7 +75,7 @@ chmod +x IPbandit/IPbandit.sh
 
 #### You can choose to run the script manually.
 ```bash
-cd /opt/IPbandit/
+cd /opt/clemaxil/IPbandit/
 ./IPbandit.sh
 ```
 
@@ -91,7 +91,7 @@ nano /etc/crond.d/IPbandit
 
 Add this line, and adjust time
 ```bash
-30 05 * * * root /opt/IPbandit/IPbandit.sh 2>&1
+30 05 * * * root /opt/clemaxil/IPbandit/IPbandit.sh 2>&1
 ```
 
 
