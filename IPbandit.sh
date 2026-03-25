@@ -45,11 +45,11 @@ while IFS= read -r url; do
 
     # Téléchargement
     if curl -fsSL --retry 3 "$url" -o "$tmpfile"; then
-        
+
         # Détection gzip via la commande file
         if file "$tmpfile" | grep -qi 'gzip'; then
             echo "gzip compressed detected, décompress..."
-            
+
             if gunzip -c "$tmpfile" > "${i}.list"; then
                 echo "Save (ungzip) in ${i}.list"
                 ((i++))
