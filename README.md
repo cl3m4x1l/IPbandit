@@ -119,7 +119,8 @@ You can choose which lists to download by editing the IPbandit_custom.txt file.
 ## Extras
 
 ### Fail2ban
-You can first retrieve the list of IPs detected by fail2ban on your machine. \ 
+You can first retrieve the list of IPs detected by fail2ban on your machine.
+
 To do this, run the fail2ban.sh script in the extras directory. \
 The script will write the myfail2ban.list file to the extras/list.d directory. \
 This file will then be imported directly by IPbandit.
