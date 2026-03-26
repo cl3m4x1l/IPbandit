@@ -20,11 +20,11 @@ Roadmap
 ----
 - 2026-01 Init project, share on github
 - 2026-02 Add IPv6, add custom config file
-- 2026-03 Version 1.0 ALPHA, NIGTHLY
-- 2026-04 Version 1.0 BETA
-- 2026-05 Version 1.0 RC (Release Candidate)
+- 2026-03 Add Fail2ban extras option
+- 2026-04 Version 1.0 ALPHA, NIGTHLY
+- 2026-05 Version 1.0 BETA
+- 2026-07 Version 1.0 RC (Release Candidate)
 - 2026-09 Version 1.0 STABLE
-- coming soon, extras option Fail2ban
 - coming soon, extras option IPset / Iptables
 - coming soon, extras option UFW / Firewalld
 
