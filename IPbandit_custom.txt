@@ -2,8 +2,8 @@
 # Only text file or gz ... other is not accepted
 # Add, delete, modify... one source by line
 https://lists.blocklist.de/lists/all.txt
-#http://wget-mirrors.uceprotect.net/rbldnsd-all/dnsbl-1.uceprotect.net.gz
-#http://wget-mirrors.uceprotect.net/rbldnsd-all/dnsbl-2.uceprotect.net.gz
+http://wget-mirrors.uceprotect.net/rbldnsd-all/dnsbl-1.uceprotect.net.gz
+http://wget-mirrors.uceprotect.net/rbldnsd-all/dnsbl-2.uceprotect.net.gz
 https://iplists.firehol.org/files/firehol_abusers_1d.netset
 https://raw.githubusercontent.com/duggytuxy/Data-Shield_IPv4_Blocklist/refs/heads/main/prod_data-shield_ipv4_blocklist.txt
 https://raw.githubusercontent.com/stamparm/ipsum/master/levels/3.txt
