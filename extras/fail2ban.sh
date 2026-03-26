@@ -18,7 +18,7 @@ if ! command -v fail2ban-client >/dev/null; then
 fi
 
 
-OUTPUT_FILE="$BASEDIR/lists/myfail2ban.list"
+OUTPUT_FILE="$BASEDIR/list.d/myfail2ban.list"
 
 JAILS=$(fail2ban-client status | grep "Jail list" | cut -d: -f2 | tr ',' ' ')
 
