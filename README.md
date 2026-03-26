@@ -116,7 +116,7 @@ Note: IPdeny offers free downloads of GEO IP address blocks by country. You can 
 ### External lists
 You can choose which lists to download by editing the IPbandit_custom.txt file.
 
-## Extras
+## EXTRAS
 
 ### Fail2ban
 You can first retrieve the list of IPs detected by fail2ban on your machine.
