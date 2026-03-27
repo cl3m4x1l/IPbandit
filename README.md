@@ -9,6 +9,7 @@ About
 ----
 IPbandit is a tool that protects you from malicious IP addresses and CIDR blocks (IPv4/IPv6).\
 IPbandit aggregates several blacklists built by communities. You can choose your lists, add or remove them. And you can add your own blacklists.
+Aggregation of lists of malicious IP addresses to be integrated into firewalls: Fortinet FortiGate, Palo Alto, pfSense, OPNsense, IPtables, NFtables, IPset, UFW, Firewalld ...
 
 By using the default lists, you will already be blocking approximately 300,000 Bandits.
 
