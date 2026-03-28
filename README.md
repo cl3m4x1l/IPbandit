@@ -3,7 +3,8 @@
 # IPBANDIT
 IP blacklist aggregator
 
-*currently Version 1.0 __Alpha__*
+*currently Version 1.0 __Alpha__* 
+prepare nightly for 2026-04
 
 About
 ----
