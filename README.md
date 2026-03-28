@@ -51,12 +51,14 @@ Navigate to the directory where you want to install it (for example, in /etc/).
 
 #### Git clone project
 ```bash
+mkdir /opt/clemaxil
 cd /opt/clemaxil/
 git clone https://github.com/cl3m4x1l/IPbandit.git
 ```
 
 #### Or download zip with wget
 ```bash
+mkdir /opt/clemaxil
 cd /opt/clemaxil/
 wget https://github.com/cl3m4x1l/IPbandit/archive/refs/heads/main.zip
 unzip main.zip 
