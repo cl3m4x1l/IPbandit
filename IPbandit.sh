@@ -21,16 +21,15 @@ start_time=$(date +%s)
 echo "IPbandit Start"
 
 
+# Directory banned list storage
+cd "$BASEDIR/list.d" 
+rm -f *.list
 
 # Fichier de sortie dans le répertoire parent
 ALL_LISTS_FILE="IPbandit_all.txt"
 
 # Vider le fichier de sortie s'il existe déjà
 > "$ALL_LISTS_FILE"
-
-# Directory banned list storage
-cd "$BASEDIR/list.d" 
-rm -f *.list
 
 # Copy list files in directory extras/list.d/ into directory to run
 cp "$BASEDIR/extras/list.d"/*.list "$BASEDIR/list.d"/ 2>/dev/null
@@ -115,6 +114,10 @@ hours=$((duration / 3600))
 minutes=$(((duration % 3600) / 60))
 seconds=$((duration % 60))
 printf "Time execute : %02d:%02d:%02d\n" $hours $minutes $seconds
+
+
+
+
 
 
 # Fonction barre de progression
