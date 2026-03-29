@@ -3,8 +3,7 @@
 # IPBANDIT
 IP blacklist aggregator
 
-*currently Version 1.0 __Alpha__* 
-->prepare nightly for 2026-04
+*currently Version 1.0 __Alpha__* -> prepare nightly for 2026-04
 
 About
 ----
@@ -96,7 +95,7 @@ nano /etc/crond.d/IPbandit
 
 Add this line, and adjust time
 ```bash
-30 05 * * * root /opt/clemaxil/IPbandit/IPbandit.sh 2>&1
+30 05 * * * root nice -n 10 /opt/clemaxil/IPbandit/IPbandit.sh 2>&1
 ```
 
 
