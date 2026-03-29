@@ -6,10 +6,7 @@
 #
 ######################################################################
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-
 BASEDIR=$(readlink -f $0 | xargs dirname)
-
 
 if ! command -v curl >/dev/null; then
         echo "ERROR : You need to install package curl"
@@ -17,10 +14,19 @@ if ! command -v curl >/dev/null; then
 fi
 
 
+
+
 # Calculate execution time
 start_time=$(date +%s)
 echo "IPbandit Start"
 
+
+
+# Fichier de sortie dans le répertoire parent
+ALL_LISTS_FILE="IPbandit_all.txt"
+
+# Vider le fichier de sortie s'il existe déjà
+> "$ALL_LISTS_FILE"
 
 # Directory banned list storage
 cd "$BASEDIR/list.d" 
@@ -28,6 +34,9 @@ rm -f *.list
 
 # Copy list files in directory extras/list.d/ into directory to run
 cp "$BASEDIR/extras/list.d"/*.list "$BASEDIR/list.d"/ 2>/dev/null
+
+
+
 
 i=1
 
@@ -56,6 +65,7 @@ while IFS= read -r url; do
                 echo "ERROR ungzip"
             fi
         else
+            cat "$tmpfile" >> "$ALL_LISTS_FILE"
             mv "$tmpfile" "${i}.list"
             echo "Save in ${i}.list"
             ((i++))
@@ -75,33 +85,12 @@ done < "$BASEDIR/IPbandit_custom.txt"
 echo "Download lists finished"
 
 
-
-# Fichier de sortie dans le répertoire parent
-ALL_LISTS_FILE="IPbandit_all.txt"
-
-# Vider le fichier de sortie s'il existe déjà
-> "$ALL_LISTS_FILE"
-
-# Boucle sur tous les fichiers .list du répertoire courant
-for file in *.list; do
-    # Vérifie qu'il existe au moins un fichier correspondant
-    [ -e "$file" ] || continue
-    
-    cat "$file" >> "$ALL_LISTS_FILE"
-done
-
-echo "Concat finished in $ALL_LISTS_FILE"
+sed -e 's/^#.*//' -e 's/;.*//' -e 's/!.*//' -e 's/\$.*//' -e 's/^:.*//' -e 's/[[:space:]].*//' -e 's/[[:space:]]//g' -e '/^$/d' "$ALL_LISTS_FILE" | LC_ALL=C sort -u > "tmp.txt" && mv "tmp.txt" "$ALL_LISTS_FILE"
 
 
-
-
-sed -e 's/^#.*//' -e 's/;.*//' -e 's/!.*//' -e 's/\$.*//' -e 's/^:.*//' -e 's/[[:space:]].*//' -e 's/[[:space:]]//g' -e '/^$/d' "$ALL_LISTS_FILE" | sort -u > "tmp.txt" && mv "tmp.txt" "$ALL_LISTS_FILE"
-
-
-if [[ -z "$ALL_LISTS_FILE" || ! -f "$ALL_LISTS_FILE" ]]; then
-    echo "Usage: $0 <input_file>"
-    exit 1
-fi
+# Directory banned list storage
+cd "$BASEDIR/list.d" 
+rm -f *.list
 
 IPV4_FILE="IPbandit_ipv4.txt"
 IPV6_FILE="IPbandit_ipv6.txt"
@@ -115,6 +104,18 @@ IPV6_SUBNET_FILE="IPbandit_ipv6_subnet.txt"
 
 TOTAL_LINES=$(wc -l < "$ALL_LISTS_FILE")
 CURRENT=0
+
+
+
+
+#Calculate execution time
+end_time=$(date +%s)
+duration=$((end_time - start_time))
+hours=$((duration / 3600))
+minutes=$(((duration % 3600) / 60))
+seconds=$((duration % 60))
+printf "Time execute : %02d:%02d:%02d\n" $hours $minutes $seconds
+
 
 # Fonction barre de progression
 progress_bar() {
@@ -135,9 +136,9 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     ((CURRENT++))
 
     # Nettoyage
-    line="${line%%#*}"                # Supprimer commentaire
-    line="$(echo "$line" | xargs -0)"    # Trim
-    [[ -z "$line" ]] && continue
+    #line="${line%%#*}"                # Supprimer commentaire
+    #line="$(echo "$line" | xargs -0)"    # Trim
+    #[[ -z "$line" ]] && continue
 
     # IPv4 subnet
     if [[ $line =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,2}$ ]]; then
@@ -159,7 +160,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     # Afficher progression toutes les 100 lignes (réduit CPU)
     if (( CURRENT % 100 == 0 )); then
         progress_bar "$CURRENT" "$TOTAL_LINES"
-        sleep 0.01   # Petite pause pour éviter 100% CPU
+        #sleep 0.01   # Petite pause pour éviter 100% CPU
     fi
 
 done < "$ALL_LISTS_FILE"
@@ -180,12 +181,6 @@ echo "IPv6 subnet   : $IPV6_SUBNET_COUNT"
 echo "--------------------------------------"
 
 
-# Directory banned list storage
-cd "$BASEDIR/list.d" 
-rm -f *.list
-
-
-
 #Calculate execution time
 end_time=$(date +%s)
 duration=$((end_time - start_time))
@@ -194,3 +189,4 @@ minutes=$(((duration % 3600) / 60))
 seconds=$((duration % 60))
 printf "Time execute : %02d:%02d:%02d\n" $hours $minutes $seconds
 echo "IPbandit stop"
+
