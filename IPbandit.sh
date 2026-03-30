@@ -133,11 +133,6 @@ progress_bar() {
 while IFS= read -r line || [[ -n "$line" ]]; do
     ((CURRENT++))
 
-    # Nettoyage
-    #line="${line%%#*}"                # Supprimer commentaire
-    #line="$(echo "$line" | xargs -0)"    # Trim
-    #[[ -z "$line" ]] && continue
-
     # IPv4 subnet
     if [[ $line =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,2}$ ]]; then
         echo "$line" >> "$IPV4_SUBNET_FILE"
