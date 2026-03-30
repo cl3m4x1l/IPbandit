@@ -23,11 +23,11 @@ echo "IPbandit Start"
 
 
 # init files for IP
-ALL_LISTS_FILE="BASEDIR/list.d/IPbandit_all.txt"
-IPV4_FILE="BASEDIR/list.d/IPbandit_ipv4.txt"
-IPV6_FILE="BASEDIR/list.d/IPbandit_ipv6.txt"
-IPV4_SUBNET_FILE="BASEDIR/list.d/IPbandit_ipv4_subnet.txt"
-IPV6_SUBNET_FILE="BASEDIR/list.d/IPbandit_ipv6_subnet.txt"
+ALL_LISTS_FILE="$BASEDIR/list.d/IPbandit_all.txt"
+IPV4_FILE="$BASEDIR/list.d/IPbandit_ipv4.txt"
+IPV6_FILE="$BASEDIR/list.d/IPbandit_ipv6.txt"
+IPV4_SUBNET_FILE="$BASEDIR/list.d/IPbandit_ipv4_subnet.txt"
+IPV6_SUBNET_FILE="$BASEDIR/list.d/IPbandit_ipv6_subnet.txt"
 > "$ALL_LISTS_FILE"
 > "$IPV4_FILE"
 > "$IPV6_FILE"
@@ -62,15 +62,18 @@ while IFS= read -r url; do
             echo "gzip compressed detected, décompress..."
 
             if gunzip -c "$tmpfile" > "${i}.list"; then
-                echo "Save (ungzip) in ${i}.list"
+                #echo "Save (ungzip) in ${i}.list"
+                cat "${i}.list" >> "$ALL_LISTS_FILE"
+                rm -f "$tmpfile" "${i}.list"
                 ((i++))
             else
                 echo "ERROR ungzip"
             fi
         else
             cat "$tmpfile" >> "$ALL_LISTS_FILE"
-            mv "$tmpfile" "${i}.list"
-            echo "Save in ${i}.list"
+            rm -f "$tmpfile"
+            #mv "$tmpfile" "${i}.list"
+            #echo "Save in ${i}.list"
             ((i++))
             continue
         fi
@@ -85,12 +88,12 @@ done < "$BASEDIR/IPbandit_custom.txt"
 
 
 # Erase file list tmp
-rm -f "$BASEDIR/list.d/.list"
+#rm -f "$BASEDIR/list.d/*.list"
 
 echo "Download lists finished"
 
 
-# filter lines
+# clean all lines
 sed -E '
 /^[[:space:]]*:/d
 s/[#;!$].*//
@@ -114,7 +117,7 @@ printf "Time execute : %02d:%02d:%02d\n" $hours $minutes $seconds
 
 
 
-# Fonction barre de progression
+# Function for viz
 progress_bar() {
     local progress=$1
     local total=$2
@@ -128,7 +131,7 @@ progress_bar() {
     printf "] %d%% (%d/%d)" "$percent" "$progress" "$total"
 }
 
-# Lecture ligne par ligne (streaming)
+# filter the IP type line by line
 while IFS= read -r line || [[ -n "$line" ]]; do
     ((CURRENT++))
 
@@ -154,15 +157,14 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 
     fi
 
-    # Afficher progression toutes les 100 lignes (réduit CPU)
+    # only 100 lines view progress
     if (( CURRENT % 100 == 0 )); then
         progress_bar "$CURRENT" "$TOTAL_LINES"
-        #sleep 0.01   # Petite pause pour éviter 100% CPU
     fi
 
 done < "$ALL_LISTS_FILE"
 
-# Barre finale 100%
+# End of progress 100%
 progress_bar "$TOTAL_LINES" "$TOTAL_LINES"
 
 IPV4_COUNT=$(wc -l < "$IPV4_FILE")
@@ -178,7 +180,7 @@ echo "IPv6 subnet   : $IPV6_SUBNET_COUNT"
 echo "--------------------------------------"
 
 
-#Calculate execution time
+#End execution time
 end_time=$(date +%s)
 duration=$((end_time - start_time))
 hours=$((duration / 3600))
