@@ -117,7 +117,6 @@ seconds=$((duration % 60))
 printf "Time execute : %02d:%02d:%02d\n" $hours $minutes $seconds
 
 
-exit
 
 # Fonction barre de progression
 progress_bar() {
