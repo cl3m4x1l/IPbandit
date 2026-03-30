@@ -63,14 +63,14 @@ while IFS= read -r url; do
 
             if gunzip -c "$tmpfile" > "$BASEDIR/list.d/${i}.list"; then
                 echo "Save (ungzip) in ${i}.list"
-                cat "${i}.list" >> "$ALL_LISTS_FILE"
+                cat "$BASEDIR/list.d/${i}.list" >> "$ALL_LISTS_FILE"
                 ((i++))
             else
                 echo "ERROR ungzip"
             fi
         else
-            cat "$tmpfile" >> "$ALL_LISTS_FILE"
             mv "$tmpfile" "$BASEDIR/list.d/${i}.list"
+            cat "$BASEDIR/list.d/${i}.list" >> "$ALL_LISTS_FILE"
             echo "Save in ${i}.list"
             ((i++))
             continue
@@ -86,7 +86,7 @@ done < "$BASEDIR/IPbandit_custom.txt"
 
 
 # Erase file list tmp
-rm -f "$BASEDIR/list.d/*.list"
+rm -f $BASEDIR/list.d/*.list
 
 echo "Download lists finished"
 
