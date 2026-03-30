@@ -85,8 +85,14 @@ echo "Download lists finished"
 
 #sed -e 's/^#.*//' -e 's/;.*//' -e 's/!.*//' -e 's/\$.*//' -e 's/^:.*//' -e 's/[[:space:]].*//' -e 's/[[:space:]]//g' -e '/^$/d' "$ALL_LISTS_FILE" | LC_ALL=C sort -u > "tmp.txt" && mv "tmp.txt" "$ALL_LISTS_FILE"
 
-sed -E 's/[#;!$:].*//; s/[[:space:]]+//g; /^$/d' "$ALL_LISTS_FILE" | LC_ALL=C sort -u > "tmp.txt" && mv "tmp.txt" "$ALL_LISTS_FILE"
+#sed -E 's/[#;!$:].*//; s/[[:space:]]+//g; /^$/d' "$ALL_LISTS_FILE" | LC_ALL=C sort -u > "tmp.txt" && mv "tmp.txt" "$ALL_LISTS_FILE"
 
+sed -E '
+/^[[:space:]]*:/d
+s/[#;!$].*//
+s/[[:space:]]+//g
+/^$/d
+' "$ALL_LISTS_FILE" | LC_ALL=C sort -u -o "$ALL_LISTS_FILE"
 
 # Directory banned list storage
 cd "$BASEDIR/list.d" 
