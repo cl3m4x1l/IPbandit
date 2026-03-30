@@ -41,12 +41,6 @@ Download the following files directly
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv6_subnet.txt
 
 
-or install on your machine
-
-**Warning: You must be root or use the sudo command**
-
-Navigate to the directory where you want to install it (for example, in /etc/).
-
 ### Install
 
 #### Git clone project
