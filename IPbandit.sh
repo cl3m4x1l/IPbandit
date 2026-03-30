@@ -21,17 +21,21 @@ start_time=$(date +%s)
 echo "IPbandit Start"
 
 
-# Directory banned list storage
-cd "$BASEDIR/list.d" 
-rm -f *.list
 
-# Fichier de sortie dans le répertoire parent
-ALL_LISTS_FILE="IPbandit_all.txt"
-
-# Vider le fichier de sortie s'il existe déjà
+# init files for IP
+ALL_LISTS_FILE="BASEDIR/list.d/IPbandit_all.txt"
+IPV4_FILE="BASEDIR/list.d/IPbandit_ipv4.txt"
+IPV6_FILE="BASEDIR/list.d/IPbandit_ipv6.txt"
+IPV4_SUBNET_FILE="BASEDIR/list.d/IPbandit_ipv4_subnet.txt"
+IPV6_SUBNET_FILE="BASEDIR/list.d/IPbandit_ipv6_subnet.txt"
 > "$ALL_LISTS_FILE"
+> "$IPV4_FILE"
+> "$IPV6_FILE"
+> "$IPV4_SUBNET_FILE"
+> "$IPV6_SUBNET_FILE"
 
-# Copy list files in directory extras/list.d/ into directory to run
+
+# Copy personal list files in directory extras/list.d/ into directory to run
 cp "$BASEDIR/extras/list.d"/*.list "$BASEDIR/list.d"/ 2>/dev/null
 
 
@@ -80,28 +84,19 @@ while IFS= read -r url; do
 done < "$BASEDIR/IPbandit_custom.txt"
 
 
+# Erase file list tmp
+rm -f "$BASEDIR/list.d/.list"
+
 echo "Download lists finished"
 
+
+# filter lines
 sed -E '
 /^[[:space:]]*:/d
 s/[#;!$].*//
 s/[[:space:]]+//g
 /^$/d
 ' "$ALL_LISTS_FILE" | LC_ALL=C sort -u -o "$ALL_LISTS_FILE"
-
-# Directory banned list storage
-cd "$BASEDIR/list.d" 
-rm -f *.list
-
-IPV4_FILE="IPbandit_ipv4.txt"
-IPV6_FILE="IPbandit_ipv6.txt"
-IPV4_SUBNET_FILE="IPbandit_ipv4_subnet.txt"
-IPV6_SUBNET_FILE="IPbandit_ipv6_subnet.txt"
-
-> "$IPV4_FILE"
-> "$IPV6_FILE"
-> "$IPV4_SUBNET_FILE"
-> "$IPV6_SUBNET_FILE"
 
 TOTAL_LINES=$(wc -l < "$ALL_LISTS_FILE")
 CURRENT=0
