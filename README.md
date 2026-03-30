@@ -118,3 +118,12 @@ You can first retrieve the list of IPs detected by fail2ban on your machine.
 To do this, run the fail2ban.sh script in the extras directory. \
 The script will write the myfail2ban.list file to the extras/list.d directory. \
 This file will then be imported directly by IPbandit.
+
+```bash
+nano /etc/crond.d/IPbanditFail2ban
+```
+
+Add this line, and adjust time for run before IPbandit.sh
+```bash
+00 05 * * * root nice -n 10 /opt/clemaxil/IPbandit/extras/fail2ban.sh 2>&1
+```
