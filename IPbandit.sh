@@ -61,7 +61,7 @@ while IFS= read -r url; do
         if file "$tmpfile" | grep -qi 'gzip'; then
             echo "gzip compressed detected, décompress..."
 
-            if gunzip -c "$tmpfile" > "${i}.list"; then
+            if gunzip -c "$tmpfile" > "$BASEDIR/list.d/${i}.list"; then
                 echo "Save (ungzip) in ${i}.list"
                 cat "${i}.list" >> "$ALL_LISTS_FILE"
                 ((i++))
@@ -70,7 +70,7 @@ while IFS= read -r url; do
             fi
         else
             cat "$tmpfile" >> "$ALL_LISTS_FILE"
-            mv "$tmpfile" "${i}.list"
+            mv "$tmpfile" "$BASEDIR/list.d/${i}.list"
             echo "Save in ${i}.list"
             ((i++))
             continue
