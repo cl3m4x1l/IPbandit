@@ -85,11 +85,6 @@ cd /opt/clemaxil/IPbandit/
 
 #### Or automate it using cron. You can use `crontab -e`, but I recommend creating a file in `/etc/cron.d`.
 ```bash
-touch /etc/crond.d/IPbandit
-```
-
-Edit the file
-```bash
 nano /etc/crond.d/IPbandit
 ```
 
@@ -110,14 +105,16 @@ After execution, you will find the generated files in IPbandit/list.d directory,
 
 ## CUSTOMIZE
 
+Note: IPdeny offers free downloads of GEO IP address blocks by country. You can add a list of IP addresses from a country to this directory. https://www.ipdeny.com/ipblocks/
+
 ### Personnal lists
 You can add your own lists to the extras/list.d directory.
 __Important !__ Name your files with the .list extension.
 
-Note: IPdeny offers free downloads of GEO IP address blocks by country. You can add a list of IP addresses from a country to this directory. https://www.ipdeny.com/ipblocks/
 
 ### External lists
 You can choose which lists to download by editing the IPbandit_custom.txt file.
+
 
 ## EXTRAS
 
