@@ -80,7 +80,6 @@ while IFS= read -r url; do
 done < "$BASEDIR/IPbandit_custom.txt"
 
 
-
 echo "Download lists finished"
 
 
@@ -114,8 +113,6 @@ hours=$((duration / 3600))
 minutes=$(((duration % 3600) / 60))
 seconds=$((duration % 60))
 printf "Time execute : %02d:%02d:%02d\n" $hours $minutes $seconds
-
-
 
 
 
