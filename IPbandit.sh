@@ -2,7 +2,7 @@
 
 ######################################################################
 #
-# IPbandit : IP blacklist aggregator
+# IPbandit : IP blacklist aggregator version ALPHA
 #
 ######################################################################
 
