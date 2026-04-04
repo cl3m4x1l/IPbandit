@@ -3,7 +3,7 @@
 # IPBANDIT
 IP blacklist aggregator
 
-*currently Version 1.0 __Alpha__* -> prepare nightly for 2026-04
+*currently Version 1.0 __Nightly__*
 
 About
 ----
@@ -20,9 +20,9 @@ GNU GPLv3
 Roadmap
 ----
 - 2026-01 Init project, share on github
-- 2026-02 Add IPv6, add custom config file
+- 2026-02 Version Alpha: IPv6, add custom config file
 - 2026-03 Add Fail2ban extras option
-- 2026-04 Version 1.0 ALPHA, NIGTHLY
+- 2026-04 Version 1.0 NIGTHLY
 - 2026-05 Version 1.0 BETA
 - 2026-07 Version 1.0 RC (Release Candidate)
 - 2026-09 Version 1.0 STABLE
