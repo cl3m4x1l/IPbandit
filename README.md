@@ -1,21 +1,18 @@
 ![Logo](https://www.infogiciel.com/ipbandit/logo.png)
 
 # IPBANDIT
-IP blacklist aggregator
-
 *currently Version 1.0 __Nightly__*
 
-About
-----
 IPbandit is a tool that protects you from malicious IP addresses and CIDR blocks (IPv4/IPv6).\
 IPbandit aggregates several blacklists created by the community. You can select your lists, add or delete them, 
 and even create your own blacklists to block entire countries, for example.
 
-It's an aggregation of lists of malicious IP addresses to integrate with your firewalls: Fortinet FortiGate, Palo Alto, pfSense, OPNsense, iptables, NFtables, IPset, UFW, Firewalld, etc...
+It's an aggregation of lists of malicious IP addresses to integrate with your firewalls.
+Examples : Fortinet FortiGate, Palo Alto, pfSense, OPNsense, iptables, NFtables, etc...
 
 Using the default lists, you'll already block approximately 300,000 malicious IP addresses.
 
-> Designed to improve the security of your critical servers. Secure your Linux infrastructure : RHEL, Centos, AlmaLinux, Rocky Linux, Debian, Ubuntu ...
+> Designed to improve the security of your critical servers. Secure your Linux infrastructure : RHEL, Centos, AlmaLinux, Rocky Linux, Debian, Ubuntu and the others.
 
 
 Licence 
