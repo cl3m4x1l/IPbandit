@@ -11,7 +11,7 @@ IPbandit is a tool that protects you from malicious IP addresses and CIDR blocks
 IPbandit aggregates several blacklists created by the community. You can select your lists, add or delete them, 
 and even create your own blacklists to block entire countries, for example.
 
-Secure your Linux infrastructure : RHEL, Centos, AlmaLinux, RockyLinux, Debian, Ubuntu ...
+Secure your Linux infrastructure : RHEL, Centos, AlmaLinux, Rocky Linux, Debian, Ubuntu ...
  
 It's an aggregation of lists of malicious IP addresses to integrate with your firewalls: Fortinet FortiGate, Palo Alto, pfSense, OPNsense, iptables, NFtables, IPset, UFW, Firewalld, etc.
 
@@ -35,8 +35,8 @@ Roadmap
 - 2026-05 Version 1.0 BETA
 - 2026-07 Version 1.0 RC (Release Candidate)
 - 2026-09 Version 1.0 STABLE
-- coming soon, extras option IPset / Iptables
-- coming soon, extras option UFW / Firewalld
+- coming soon, extras option Ipset / Iptables / Nftables
+
 
 
 ## HOW TO
