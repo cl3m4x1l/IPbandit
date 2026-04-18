@@ -18,7 +18,9 @@ Using the default lists, you'll already block approximately 300,000 malicious IP
 
 Licence 
 ----
-GNU GPLv3
+IPbandit is free and open-source software licensed under the GNU General Public License v3.0 (GPLv3).\
+You are free to use, modify, and distribute this software in compliance with the license terms. See the [LICENSE](/LICENSE) file for more details.
+
 
 Roadmap
 ----
