@@ -113,21 +113,21 @@ minutes=$(((duration % 3600) / 60))
 seconds=$((duration % 60))
 printf "Time execute : %02d:%02d:%02d\n" $hours $minutes $seconds
 
-
+echo "In progress, please wait ..."
 
 # Function for viz
-progress_bar() {
-    local progress=$1
-    local total=$2
-    local percent=$(( progress * 100 / total ))
-    local filled=$(( percent / 2 ))
-    local empty=$(( 50 - filled ))
+# progress_bar() {
+#     local progress=$1
+#     local total=$2
+#     local percent=$(( progress * 100 / total ))
+#     local filled=$(( percent / 2 ))
+#     local empty=$(( 50 - filled ))
 
-    printf "\r["
-    printf "%0.s#" $(seq 1 $filled)
-    printf "%0.s-" $(seq 1 $empty)
-    printf "] %d%% (%d/%d)" "$percent" "$progress" "$total"
-}
+#     printf "\r["
+#     printf "%0.s#" $(seq 1 $filled)
+#     printf "%0.s-" $(seq 1 $empty)
+#     printf "] %d%% (%d/%d)" "$percent" "$progress" "$total"
+# }
 
 # filter the IP type line by line
 while IFS= read -r line || [[ -n "$line" ]]; do
@@ -151,14 +151,14 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     fi
 
     # only 100 lines view progress
-    if (( CURRENT % 100 == 0 )); then
-        progress_bar "$CURRENT" "$TOTAL_LINES"
-    fi
+    #if (( CURRENT % 100 == 0 )); then
+    #    progress_bar "$CURRENT" "$TOTAL_LINES"
+    #fi
 
 done < "$ALL_LISTS_FILE"
 
 # End of progress 100%
-progress_bar "$TOTAL_LINES" "$TOTAL_LINES"
+#progress_bar "$TOTAL_LINES" "$TOTAL_LINES"
 
 IPV4_COUNT=$(wc -l < "$IPV4_FILE")
 IPV6_COUNT=$(wc -l < "$IPV6_FILE")
