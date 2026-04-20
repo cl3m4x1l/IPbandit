@@ -17,7 +17,7 @@ Examples : Fortinet FortiGate, Palo Alto, pfSense, OPNsense, iptables, NFtables,
 
 Using the default lists, you'll already block approximately 300,000 malicious IP addresses.
 
-> Designed to improve the security of your critical servers. Secure your Linux infrastructure : RHEL, Centos, AlmaLinux, Rocky Linux, Debian, Ubuntu and the others.
+> Designed to improve the security of your critical servers. Secure your Linux infrastructure : RHEL, Centos, AlmaLinux, Rocky Linux, SUSE, openSUSE, Debian, Ubuntu and the others.
 
 *currently Version 1.0 __Nightly__*
 
