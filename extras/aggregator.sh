@@ -37,7 +37,7 @@ IPV6_SUBNET_FILE="$BASEDIR/list.d/IPbandit_ipv6_subnet.txt"
 cp "$BASEDIR/extras/list.d"/*.list "$BASEDIR/list.d"/ 2>/dev/null
 
 
-
+echo "$BASEDIR/custom.txt"
 
 i=1
 
@@ -80,7 +80,7 @@ while IFS= read -r url; do
         rm -f "$tmpfile"
     fi
 
-done < "$BASEDIR/banlist_custom.txt"
+done < "$BASEDIR/custom.txt"
 
 
 # Erase file list tmp

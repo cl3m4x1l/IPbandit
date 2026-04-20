@@ -7,6 +7,7 @@
 
 BASEDIR=$(readlink -f $0 | xargs dirname)
 
+
 show_help() {
     echo "Usage: $0 [OPTIONS]"
     echo ""
@@ -17,11 +18,13 @@ show_help() {
     echo ""
     echo "Exemples :"
     echo "  $0 --fail2ban"
+    echo "  $0 --aggregator"
+    echo "  $0 --fail2ban --aggregator"
 }
 
 run_script() {
     local script_name="$1"
-    local script_path="$BASE_DIR/extras/$script_name"
+    local script_path="$BASEDIR/extras/$script_name"
 
     if [[ -x "$script_path" ]]; then
         echo "Exécution $script_name..."
@@ -45,6 +48,9 @@ for arg in "$@"; do
     case "$arg" in
         --fail2ban)
             run_script "fail2ban.sh"
+            ;;
+        --aggregator)
+            run_script "aggregator.sh"
             ;;
         -h|--help)
             show_help
