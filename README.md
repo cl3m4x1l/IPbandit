@@ -67,9 +67,9 @@ mv IPbandit-main IPbandit
 Navigate to the parent directory
 
 ```bash
-cd /opt/clemaxil/
-chown -R root:root IPbandit
-chmod +x IPbandit/IPbandit.sh
+chown -R root:root /opt/clemaxil/IPbandit
+cd /opt/clemaxil/IPbandit
+chmod +x IPbandit.sh extras/aggregator.sh extras/fail2ban.sh
 ```
 
 
@@ -78,17 +78,29 @@ chmod +x IPbandit/IPbandit.sh
 #### You can choose to run the script manually.
 ```bash
 cd /opt/clemaxil/IPbandit/
-./IPbandit.sh
+./IPbandit.sh --aggregator
 ```
 
-#### Or automate it using cron. You can use `crontab -e`, but I recommend creating a file in `/etc/cron.d`.
+#### Automate it using cron. 
+
+##### You can use `crontab -e`, 
+```bash
+crontab -e
+```
+
+Add this line, and adjust time
+```bash
+30 05 * * * nice -n 10 /opt/clemaxil/IPbandit/IPbandit.sh --aggregator >/dev/null 2>&1
+```
+
+##### Or creating a file in `/etc/cron.d`.
 ```bash
 nano /etc/crond.d/IPbandit
 ```
 
 Add this line, and adjust time
 ```bash
-30 05 * * * root nice -n 10 /opt/clemaxil/IPbandit/IPbandit.sh 2>&1
+30 05 * * * root nice -n 10 /opt/clemaxil/IPbandit/IPbandit.sh --aggregator >/dev/null 2>&1
 ```
 
 
@@ -117,17 +129,23 @@ You can choose which lists to download by editing the IPbandit_custom.txt file.
 ## EXTRAS
 
 ### Fail2ban
-You can first retrieve the list of IPs detected by fail2ban on your machine.
+You can retrieve the list of IPs detected by fail2ban on your machine.
 
-To do this, run the fail2ban.sh script in the extras directory. \
-The script will write the myfail2ban.list file to the extras/list.d directory. \
-This file will then be imported directly by IPbandit.
+The Ips will be written in the files extras/list.d/myfail2ban.list.\ 
+This file will then be imported directly by IPbandit. 
+
+You can run the scriptextras/fail2ban.sh separately 
 
 ```bash
-nano /etc/crond.d/IPbanditFail2ban
+cd /opt/clemaxil/IPbandit/extras/
+./fail2ban.sh 
 ```
 
-Add this line, and adjust time for run before IPbandit.sh
+or with the IPbandit options.
+
 ```bash
-00 05 * * * root nice -n 10 /opt/clemaxil/IPbandit/extras/fail2ban.sh 2>&1
+cd /opt/clemaxil/IPbandit/
+./IPbandit.sh --fail2ban
 ```
+
+### Ipset, Iptables, Nftables... Coming soon ....
