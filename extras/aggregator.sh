@@ -21,11 +21,11 @@ echo "Banlist Aggregator Start"
 
 
 # init files for IP
-ALL_LISTS_FILE="$BASEDIR/list.d/IPbandit_all.txt"
-IPV4_FILE="$BASEDIR/list.d/IPbandit_ipv4.txt"
-IPV6_FILE="$BASEDIR/list.d/IPbandit_ipv6.txt"
-IPV4_SUBNET_FILE="$BASEDIR/list.d/IPbandit_ipv4_subnet.txt"
-IPV6_SUBNET_FILE="$BASEDIR/list.d/IPbandit_ipv6_subnet.txt"
+ALL_LISTS_FILE="$BASEDIR/../list.d/IPbandit_all.txt"
+IPV4_FILE="$BASEDIR/../list.d/IPbandit_ipv4.txt"
+IPV6_FILE="$BASEDIR/../list.d/IPbandit_ipv6.txt"
+IPV4_SUBNET_FILE="$BASEDIR/../list.d/IPbandit_ipv4_subnet.txt"
+IPV6_SUBNET_FILE="$BASEDIR/../list.d/IPbandit_ipv6_subnet.txt"
 > "$ALL_LISTS_FILE"
 > "$IPV4_FILE"
 > "$IPV6_FILE"
@@ -34,7 +34,7 @@ IPV6_SUBNET_FILE="$BASEDIR/list.d/IPbandit_ipv6_subnet.txt"
 
 
 # Copy personal list files in directory extras/list.d/ into directory to run
-cp "$BASEDIR/extras/list.d"/*.list "$BASEDIR/list.d"/ 2>/dev/null
+cp "$BASEDIR/list.d"/*.list "$BASEDIR/../list.d"/ 2>/dev/null
 
 i=1
 
@@ -56,16 +56,16 @@ while IFS= read -r url; do
         if file "$tmpfile" | grep -qi 'gzip'; then
             echo "gzip compressed detected, décompress..."
 
-            if gunzip -c "$tmpfile" > "$BASEDIR/list.d/${i}.list"; then
+            if gunzip -c "$tmpfile" > "$BASEDIR/../list.d/${i}.list"; then
                 echo "Save (ungzip) in ${i}.list"
-                cat "$BASEDIR/list.d/${i}.list" >> "$ALL_LISTS_FILE"
+                cat "$BASEDIR/../list.d/${i}.list" >> "$ALL_LISTS_FILE"
                 ((i++))
             else
                 echo "ERROR ungzip"
             fi
         else
-            mv "$tmpfile" "$BASEDIR/list.d/${i}.list"
-            cat "$BASEDIR/list.d/${i}.list" >> "$ALL_LISTS_FILE"
+            mv "$tmpfile" "$BASEDIR/../list.d/${i}.list"
+            cat "$BASEDIR/../list.d/${i}.list" >> "$ALL_LISTS_FILE"
             echo "Save in ${i}.list"
             ((i++))
             continue
@@ -81,7 +81,7 @@ done < "$BASEDIR/custom.txt"
 
 
 # Erase file list tmp
-rm -f $BASEDIR/list.d/*.list
+rm -f $BASEDIR/../list.d/*.list
 
 echo "Download lists finished"
 
