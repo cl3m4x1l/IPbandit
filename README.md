@@ -8,9 +8,6 @@
 <img width="33%" src="https://www.infogiciel.com/ipbandit/IPbandit_logo_300x300.png">
 </p>
 
-# IPBANDIT
-*currently Version 1.0 __Nightly__*
-
 IPbandit is a tool that protects you from malicious IP addresses and CIDR blocks (IPv4/IPv6).\
 IPbandit aggregates several blacklists created by the community. You can select your lists, add or delete them, 
 and even create your own blacklists to block entire countries, for example.
@@ -22,6 +19,7 @@ Using the default lists, you'll already block approximately 300,000 malicious IP
 
 > Designed to improve the security of your critical servers. Secure your Linux infrastructure : RHEL, Centos, AlmaLinux, Rocky Linux, Debian, Ubuntu and the others.
 
+*currently Version 1.0 __Nightly__*
 
 Licence 
 ----
@@ -42,7 +40,7 @@ Roadmap
 
 
 
-## HOW TO
+# HOW TO
 
 You can use our lists generated directly from our web servers (default configuration) without installation.\
 Download the following files directly
@@ -53,16 +51,16 @@ Download the following files directly
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv6_subnet.txt
 
 
-### Install
+## Install
 
-#### Git clone project
+### Git clone project
 ```bash
 mkdir /opt/clemaxil
 cd /opt/clemaxil/
 git clone https://github.com/cl3m4x1l/IPbandit.git
 ```
 
-#### Or download zip with wget
+### Or download zip with wget
 ```bash
 mkdir /opt/clemaxil
 cd /opt/clemaxil/
@@ -71,7 +69,7 @@ unzip main.zip
 mv IPbandit-main IPbandit
 ```
 
-#### Access rights 
+### Access rights 
 Navigate to the parent directory
 
 ```bash
@@ -81,17 +79,17 @@ chmod +x IPbandit.sh extras/aggregator.sh extras/fail2ban.sh
 ```
 
 
-### Run
+## Run
 
-#### You can choose to run the script manually.
+### You can choose to run the script manually.
 ```bash
 cd /opt/clemaxil/IPbandit/
 ./IPbandit.sh --aggregator
 ```
 
-#### Automate it using cron. 
+### Automate it using cron. 
 
-##### You can use `crontab -e`, 
+#### You can use `crontab -e`, 
 ```bash
 crontab -e
 ```
@@ -101,7 +99,7 @@ Add this line, and adjust time
 30 05 * * * nice -n 10 /opt/clemaxil/IPbandit/IPbandit.sh --aggregator >/dev/null 2>&1
 ```
 
-##### Or creating a file in `/etc/cron.d`.
+#### Or creating a file in `/etc/cron.d`.
 ```bash
 nano /etc/crond.d/IPbandit
 ```
@@ -117,7 +115,7 @@ With full options (see extras section)
 ```
 
 
-### Results
+## Results
 After execution, you will find the generated files in IPbandit/list.d directory, which you can then use for your services.
 - IPbandit_all.txt
 - IPbandit_ipv4.txt
@@ -126,22 +124,22 @@ After execution, you will find the generated files in IPbandit/list.d directory,
 - IPbandit_ipv6_subnet.txt
 
 
-## CUSTOMIZE
+# CUSTOMIZE
 
 Note: IPdeny offers free downloads of GEO IP address blocks by country. You can add a list of IP addresses from a country to this directory. https://www.ipdeny.com/ipblocks/
 
-### Personnal lists
+## Personnal lists
 You can add your own lists to the extras/list.d directory.
 __Important !__ Name your files with the .list extension.
 
 
-### External lists
+## External lists
 You can choose which lists to download by editing the IPbandit_custom.txt file.
 
 
-## EXTRAS
+# EXTRAS
 
-### Fail2ban
+## Fail2ban
 You can retrieve the list of IPs detected by fail2ban on your machine.
 
 The Ips will be written in the files extras/list.d/myfail2ban.list.\ 
@@ -161,4 +159,4 @@ cd /opt/clemaxil/IPbandit/
 ./IPbandit.sh --fail2ban
 ```
 
-### Ipset, Iptables, Nftables... Coming soon ....
+## Ipset, Iptables, Nftables... Coming soon ....
