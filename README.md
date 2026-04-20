@@ -1,4 +1,9 @@
-![Logo](https://www.infogiciel.com/ipbandit/logo.png)
+<p align="center">
+  <img src="https://img.shields.io/badge/Open%20Source-100%25-brightgreen?style=for-the-badge&logo=opensourceinitiative">
+  <img src="https://img.shields.io/badge/Platform-Linux_Universal-0052cc?style=for-the-badge&logo=linux">
+  <img src="https://img.shields.io/badge/License-GNU_GPLv3-yellow?style=for-the-badge&logo=license">
+![Logo](https://www.infogiciel.com/ipbandit/IPbandit_logo_300x300.png)
+</p>
 
 # IPBANDIT
 *currently Version 1.0 __Nightly__*
