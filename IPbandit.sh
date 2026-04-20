@@ -12,6 +12,7 @@ show_help() {
     echo ""
     echo "Available Options :"
     echo "  --fail2ban     Start the recovery of banned ips by fail2ban"
+    echo "  --aggregator   Aggregate all banned lists"
     echo "  -h, --help     Print this help"
     echo ""
     echo "Exemples :"
