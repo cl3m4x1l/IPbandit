@@ -26,6 +26,8 @@ run_script() {
     local script_name="$1"
     local script_path="$BASEDIR/extras/$script_name"
 
+    echo "IPbandit START"
+
     if [[ -x "$script_path" ]]; then
         echo "Exécution $script_name..."
         "$script_path"
@@ -33,6 +35,8 @@ run_script() {
         echo "Error : $script_path not found or not executable"
         exit 1
     fi
+
+    echo "IPbandit STOP"
 }
 
 

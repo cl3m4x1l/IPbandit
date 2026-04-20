@@ -6,8 +6,6 @@
 #
 ######################################################################
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-
 BASEDIR=$(readlink -f $0 | xargs dirname)
 
 
