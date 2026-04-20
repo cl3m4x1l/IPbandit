@@ -103,6 +103,11 @@ Add this line, and adjust time
 30 05 * * * root nice -n 10 /opt/clemaxil/IPbandit/IPbandit.sh --aggregator >/dev/null 2>&1
 ```
 
+With full options (see extras section)
+```bash
+30 05 * * * root nice -n 10 /opt/clemaxil/IPbandit/IPbandit.sh --fail2ban --aggregator >/dev/null 2>&1
+```
+
 
 ### Results
 After execution, you will find the generated files in IPbandit/list.d directory, which you can then use for your services.
