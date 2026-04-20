@@ -4,7 +4,9 @@
   <img src="https://img.shields.io/badge/License-GNU_GPLv3-yellow?style=for-the-badge&logo=license">
 </p>
 
+<p align="center">
 ![Logo](https://www.infogiciel.com/ipbandit/IPbandit_logo_300x300.png)
+</p>
 
 # IPBANDIT
 *currently Version 1.0 __Nightly__*
