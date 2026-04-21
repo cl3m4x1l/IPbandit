@@ -30,12 +30,12 @@ You are free to use, modify, and distribute this software in compliance with the
 Roadmap
 ----
 - 2026-01 Init project, share on github
-- 2026-02 Version Alpha: IPv6, add custom config file
+- 2026-02 Add IPv6, add custom config file
 - 2026-03 Add Fail2ban extras option
-- 2026-04 Version 1.0 NIGTHLY
-- 2026-05 Version 1.0 BETA
-- 2026-07 Version 1.0 RC (Release Candidate)
-- 2026-09 Version 1.0 STABLE
+- 2026-04 Version 1.0 Nightly
+- 2026-05 Version 1.0 Beta
+- 2026-07 Version 1.0 Release Candidate
+- 2026-09 Version 1.0 Stable
 - coming soon, extras option Ipset / Iptables / Nftables
 
 
