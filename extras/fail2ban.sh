@@ -18,12 +18,12 @@ fi
 
 OUTPUT_FILE="$BASEDIR/list.d/myfail2ban.list"
 
-JAILS=$(sudo fail2ban-client status | grep "Jail list" | cut -d: -f2 | tr ',' ' ')
+JAILS=$(fail2ban-client status | grep "Jail list" | cut -d: -f2 | tr ',' ' ')
 
 for JAIL in $JAILS; do
     JAIL=$(echo "$JAIL" | xargs)  # remove unnecessary spaces
 
-    sudo fail2ban-client get "$JAIL" banip | tr ' ' '\n' >> "$OUTPUT_FILE"
+    fail2ban-client get "$JAIL" banip | tr ' ' '\n' >> "$OUTPUT_FILE"
 done
 
 sort -u "$OUTPUT_FILE" -o "$OUTPUT_FILE"
