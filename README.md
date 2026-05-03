@@ -31,11 +31,10 @@ Roadmap
 ----
 - 2026-01 Init project, share on github
 - 2026-02 Add IPv6, add custom config file
-- 2026-03 Add Fail2ban extras option
-- 2026-04 Version 1.0 Nightly
-- 2026-05 Version 1.0 Beta
-- 2026-07 Version 1.0 Release Candidate
-- 2026-09 Version 1.0 Stable
+- 2026-03 Add Fail2ban extras option, version Nightly
+- 2026-04 Version 1.0 Beta
+- 2026-05 Version 1.0 Release Candidate
+- 2026-06 Version 1.0 Stable
 - coming soon, IPV6::/64 and clean IPV4 file if is containt to Subnet file
 - coming soon, extras option Ipset / Iptables / Nftables
 
