@@ -19,7 +19,7 @@ Using the default lists, you'll already block approximately 300,000 malicious IP
 
 > Designed to improve the security of your critical servers. Secure your Linux infrastructure : RHEL, Centos, AlmaLinux, Rocky Linux, SUSE, openSUSE, Debian, Ubuntu and the others.
 
-*currently Version 1.0 __Nightly__*
+*currently Version 1.0 __Stable__*
 
 Licence 
 ----
@@ -36,6 +36,7 @@ Roadmap
 - 2026-05 Version 1.0 Beta
 - 2026-07 Version 1.0 Release Candidate
 - 2026-09 Version 1.0 Stable
+- coming soon, IPV6::/64 and clean IPV4 file if is containt to Subnet file
 - coming soon, extras option Ipset / Iptables / Nftables
 
 
