@@ -19,7 +19,7 @@ Using the default lists, you'll already block approximately 300,000 malicious IP
 
 > Designed to improve the security of your critical servers. Secure your Linux infrastructure : RHEL, Centos, AlmaLinux, Rocky Linux, SUSE, openSUSE, Debian, Ubuntu, Alpine Linux, Gentoo, NixOS, Arch Linux and the others.
 
-*currently Version 1.0 __Stable__*
+*this Version 1.1 __Alpha__*
 
 Licence 
 ----
@@ -38,6 +38,14 @@ Roadmap
 - coming soon, IPV6::/64 and clean IPV4 file if is containt to Subnet file
 - coming soon, extras option Ipset / Iptables / Nftables
 
+
+Logs
+----
+Changes for this edition 
+- Rename file: Subnet to CIDR 
+- a single file for IPv6, only CIDR/64 
+- Coming soon: Filter IPv6 to convert only /64 
+- Coming soon: filter IPv4 for deletion if included in the CIDR file
 
 
 # HOW TO
