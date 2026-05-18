@@ -25,14 +25,12 @@ echo "Banlist Aggregator Start"
 # init files for IP
 ALL_LISTS_FILE="$BASEDIR/../list.d/IPbandit_all.txt"
 IPV4_FILE="$BASEDIR/../list.d/IPbandit_ipv4.txt"
-IPV6_FILE="$BASEDIR/../list.d/IPbandit_ipv6.txt"
-IPV4_SUBNET_FILE="$BASEDIR/../list.d/IPbandit_ipv4_subnet.txt"
-IPV6_SUBNET_FILE="$BASEDIR/../list.d/IPbandit_ipv6_subnet.txt"
+IPV4_CIDR_FILE="$BASEDIR/../list.d/IPbandit_ipv4_cidr.txt"
+IPV6_CIDR_FILE="$BASEDIR/../list.d/IPbandit_ipv6_cidr.txt"
 > "$ALL_LISTS_FILE"
 > "$IPV4_FILE"
-> "$IPV6_FILE"
-> "$IPV4_SUBNET_FILE"
-> "$IPV6_SUBNET_FILE"
+> "$IPV4_CIDR_FILE"
+> "$IPV6_CIDR_FILE"
 
 
 # Copy personal list files in directory extras/list.d/ into directory to run
@@ -132,7 +130,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 
     # IPv4 subnet
     if [[ $line =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,2}$ ]]; then
-        echo "$line" >> "$IPV4_SUBNET_FILE"
+        echo "$line" >> "$IPV4_CIDR_FILE"
 
     # IPv4 simple
     elif [[ $line =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
@@ -140,10 +138,10 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 
     # IPv6 subnet
     elif [[ $line =~ ^([0-9a-fA-F:]+)/[0-9]{1,3}$ ]]; then
-        echo "$line" >> "$IPV6_SUBNET_FILE"
+        echo "$line" >> "$IPV6_CIDR_FILE"
     # IPv6 simple
     elif [[ $line =~ ^[0-9a-fA-F:]+$ ]]; then
-        echo "$line" >> "$IPV6_FILE"
+        echo "$line" >> "$IPV6_CIDR_FILE"
 
     fi
 
@@ -158,15 +156,13 @@ done < "$ALL_LISTS_FILE"
 #progress_bar "$TOTAL_LINES" "$TOTAL_LINES"
 
 IPV4_COUNT=$(wc -l < "$IPV4_FILE")
-IPV6_COUNT=$(wc -l < "$IPV6_FILE")
-IPV4_SUBNET_COUNT=$(wc -l < "$IPV4_SUBNET_FILE")
-IPV6_SUBNET_COUNT=$(wc -l < "$IPV6_SUBNET_FILE")
+IPV4_CIDR_COUNT=$(wc -l < "$IPV4_SUBNET_FILE")
+IPV6_CIDR_COUNT=$(wc -l < "$IPV6_SUBNET_FILE")
 
 echo "--------------------------------------"
-echo "IPv4 simple   : $IPV4_COUNT"
-echo "IPv4 subnet   : $IPV4_SUBNET_COUNT"
-echo "IPv6 simple   : $IPV6_COUNT"
-echo "IPv6 subnet   : $IPV6_SUBNET_COUNT"
+echo "IPv4       : $IPV4_COUNT"
+echo "IPv4 CIDR  : $IPV4_CIDR_COUNT"
+echo "IPv6 CIDR  : $IPV6_CIDR_COUNT"
 echo "--------------------------------------"
 
 
