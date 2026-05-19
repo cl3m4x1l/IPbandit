@@ -44,7 +44,7 @@ Logs
 Changes for this edition 
 - Rename file: Subnet to CIDR 
 - a single file for IPv6, only CIDR/64 
-- Coming soon: Filter IPv6 to convert only /64 
+- Convert IPv6 to subnet /64 
 - Coming soon: filter IPv4 for deletion if included in the CIDR file
 
 
