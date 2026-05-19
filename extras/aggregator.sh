@@ -159,7 +159,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 done < "$ALL_LISTS_FILE"
 
 
-
+# Convert IPv6 to subnet /64
 tmpfile=$(mktemp)
 
 while read -r ip; do
@@ -170,7 +170,6 @@ while read -r ip; do
 
 done < "$IPV6_CIDR_FILE" | sort -u > "$tmpfile"
 
-# Remplace le fichier original
 mv "$tmpfile" "$IPV6_CIDR_FILE"
 
 
