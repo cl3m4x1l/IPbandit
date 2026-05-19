@@ -45,6 +45,7 @@ Changes for this edition
 - Rename file: Subnet to CIDR 
 - a single file for IPv6, only CIDR/64 
 - Convert IPv6 to subnet /64 
+- Add whitelist files
 - Coming soon: filter IPv4 for deletion if included in the CIDR file
 
 
@@ -58,6 +59,9 @@ Download the following files directly
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv6.txt
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv6_subnet.txt
 
+
+## Requirements
+You must have curl, sipcacl to install
 
 ## Install
 
