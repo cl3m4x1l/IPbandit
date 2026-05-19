@@ -1,12 +1,12 @@
 #! /usr/bin/env bash
 
-set -euo pipefail
 
 ######################################################################
 # banlist aggregator 
 ######################################################################
 
-BASEDIR=$(readlink -f $0 | xargs dirname)
+# /opt/clemaxil/IPbandit/extras
+BASEDIR=$(readlink -f $0 | xargs dirname) 
 
 if ! command -v curl >/dev/null; then
         echo "ERROR : You need to install package curl"
@@ -19,7 +19,7 @@ fi
 # Calculate execution time
 start_time=$(date +%s)
 echo "Banlist Aggregator Start"
-
+echo "Basedir $BASEDIR"
 
 
 # init files for IP
@@ -34,7 +34,7 @@ IPV6_CIDR_FILE="$BASEDIR/../list.d/IPbandit_ipv6_cidr.txt"
 
 
 # Copy personal list files in directory extras/list.d/ into directory to run
-cp "$BASEDIR/list.d"/*.list "$BASEDIR/../list.d"/ 2>/dev/null
+cp "$BASEDIR"/list.d/*.list "$BASEDIR/../list.d/"
 
 i=1
 
@@ -50,13 +50,13 @@ while IFS= read -r url; do
     tmpfile=$(mktemp)
 
     # Téléchargement
-    if curl -fsSL --retry 3 "$url" -o "$tmpfile"; then
+    if curl -fsSL --retry 3 "$url" -o $tmpfile; then
 
         # Détection gzip via la commande file
         if file "$tmpfile" | grep -qi 'gzip'; then
             echo "gzip compressed detected, décompress..."
 
-            if gunzip -c "$tmpfile" > "$BASEDIR/../list.d/${i}.list"; then
+            if gunzip -c $tmpfile > "$BASEDIR/../list.d/${i}.list"; then
                 echo "Save (ungzip) in ${i}.list"
                 cat "$BASEDIR/../list.d/${i}.list" >> "$ALL_LISTS_FILE"
                 ((i++))
@@ -64,7 +64,7 @@ while IFS= read -r url; do
                 echo "ERROR ungzip"
             fi
         else
-            mv "$tmpfile" "$BASEDIR/../list.d/${i}.list"
+            mv $tmpfile "$BASEDIR/../list.d/${i}.list"
             cat "$BASEDIR/../list.d/${i}.list" >> "$ALL_LISTS_FILE"
             echo "Save in ${i}.list"
             ((i++))
@@ -79,6 +79,9 @@ while IFS= read -r url; do
 
 done < "$BASEDIR/custom.txt"
 
+
+# Concatène tous les fichiers .list
+find "$BASEDIR/../list.d" -type f -name "*.list" -exec cat {} + >> "$ALL_LISTS_FILE"
 
 # Erase file list tmp
 rm -f $BASEDIR/../list.d/*.list
@@ -156,8 +159,8 @@ done < "$ALL_LISTS_FILE"
 #progress_bar "$TOTAL_LINES" "$TOTAL_LINES"
 
 IPV4_COUNT=$(wc -l < "$IPV4_FILE")
-IPV4_CIDR_COUNT=$(wc -l < "$IPV4_SUBNET_FILE")
-IPV6_CIDR_COUNT=$(wc -l < "$IPV6_SUBNET_FILE")
+IPV4_CIDR_COUNT=$(wc -l < "$IPV4_CIDR_FILE")
+IPV6_CIDR_COUNT=$(wc -l < "$IPV6_CIDR_FILE")
 
 echo "--------------------------------------"
 echo "IPv4       : $IPV4_COUNT"
