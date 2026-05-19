@@ -13,7 +13,10 @@ if ! command -v curl >/dev/null; then
         exit 1
 fi
 
-
+if ! command -v sipcalc >/dev/null; then
+        echo "ERROR : You need to install package sipcalc"
+        exit 1
+fi
 
 
 # Calculate execution time
@@ -154,6 +157,23 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     #fi
 
 done < "$ALL_LISTS_FILE"
+
+
+
+tmpfile=$(mktemp)
+
+while read -r ip; do
+    [[ -z "$ip" ]] && continue
+
+    sipcalc "$ip/64" 2>/dev/null \
+        | awk -F'- ' '/Subnet/ {print $2}'
+
+done < "$IPV6_CIDR_FILE" | sort -u > "$tmpfile"
+
+# Remplace le fichier original
+mv "$tmpfile" "$IPV6_CIDR_FILE"
+
+
 
 # End of progress 100%
 #progress_bar "$TOTAL_LINES" "$TOTAL_LINES"
