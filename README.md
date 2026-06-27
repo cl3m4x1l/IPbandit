@@ -48,9 +48,13 @@ Changes for this edition 1.1.0
 
 # HOW TO
 
-You can use our lists generated directly from our web servers (default configuration) without installation.\
-Download the following files directly
+You can use our lists, generated directly from our infrastructure, without any installation.\
+Download the following files directly.
+
+The unified file containing all IP addresses : 
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_all.txt
+
+or the separate files : 
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv4.txt
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv4_cidr.txt
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv6_cidr.txt
