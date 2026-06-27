@@ -102,8 +102,8 @@ s/[[:space:]]+//g
 /^$/d
 ' "$ALL_LISTS_FILE" | LC_ALL=C sort -u -o "$ALL_LISTS_FILE"
 
-TOTAL_LINES=$(wc -l < "$ALL_LISTS_FILE")
-CURRENT=0
+#TOTAL_LINES=$(wc -l < "$ALL_LISTS_FILE")
+#CURRENT=0
 
 
 
@@ -134,7 +134,7 @@ echo "In progress, please wait ..."
 
 # filter the IP type line by line
 while IFS= read -r line || [[ -n "$line" ]]; do
-    ((CURRENT++))
+    #((CURRENT++))
 
     # IPv4 subnet
     if [[ $line =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,2}$ ]]; then
@@ -178,6 +178,10 @@ mv "$tmpfile" "$IPV6_CIDR_FILE"
 
 # End of progress 100%
 #progress_bar "$TOTAL_LINES" "$TOTAL_LINES"
+
+
+###### ADD sort u for ipv4, ipv4 cidr, ipv6 cidr file
+
 
 IPV4_COUNT=$(wc -l < "$IPV4_FILE")
 IPV4_CIDR_COUNT=$(wc -l < "$IPV4_CIDR_FILE")
