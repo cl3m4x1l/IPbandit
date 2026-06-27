@@ -13,13 +13,11 @@ IPbandit aggregates several blacklists created by the community. You can select 
 and even create your own blacklists to block entire countries, for example.
 
 It's an aggregation of lists of malicious IP addresses to integrate with your firewalls.
-Examples : Fortinet FortiGate, Palo Alto, pfSense, OPNsense, iptables, NFtables, etc...
+Examples : Fortinet FortiGate, Palo Alto, Cisco, Checkpoint, F5, Sophos, Juniper, Mikrotik, pfSense, OPNsense, iptables, NFtables, etc...
 
-Using the default lists, you'll already block approximately 300,000 malicious IP addresses.
+> Designed to improve the security of your critical servers. Plug blocklists to your infrastructure. A completely free Crowdsec alternative
 
-> Designed to improve the security of your critical servers. Secure your Linux infrastructure : RHEL, Centos, AlmaLinux, Rocky Linux, SUSE, openSUSE, Debian, Ubuntu, Alpine Linux, Gentoo, NixOS, Arch Linux and the others.
-
-*this Version 1.1.0 __Alpha__*
+*this version 1.1.0 __Alpha__*
 
 Licence 
 ----
@@ -44,7 +42,7 @@ Logs
 Changes for this edition 1.1.0
 - Rename file: Subnet to CIDR 
 - Convert IPv6 only CIDR/64 
-- Add white list
+- Add white list file
 - Coming soon: filter IPv4 for deletion if included in the CIDR file
 
 
@@ -54,9 +52,8 @@ You can use our lists generated directly from our web servers (default configura
 Download the following files directly
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_all.txt
 - https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv4.txt
-- https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv4_subnet.txt
-- https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv6.txt
-- https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv6_subnet.txt
+- https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv4_cidr.txt
+- https://raw.githubusercontent.com/cl3m4x1l/IPbandit/refs/heads/main/list.d/IPbandit_ipv6_cidr.txt
 
 
 ## Requirements
@@ -130,9 +127,9 @@ With full options (see extras section)
 After execution, you will find the generated files in IPbandit/list.d directory, which you can then use for your services.
 - IPbandit_all.txt
 - IPbandit_ipv4.txt
-- IPbandit_ipv4_subnet.txt
-- IPbandit_ipv6.txt
-- IPbandit_ipv6_subnet.txt
+- IPbandit_ipv4_cidr.txt
+- IPbandit_ipv6_cidr.txt
+- IPbandit_whitelist.txt
 
 
 # CUSTOMIZE
