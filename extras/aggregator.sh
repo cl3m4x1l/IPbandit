@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-
 ######################################################################
 # banlist aggregator 
 ######################################################################
@@ -154,12 +153,13 @@ mv "$tmpfile" "$IPV6_CIDR_FILE"
 
 ###### ADD sort u for ipv4, ipv4 cidr, ipv6 cidr file
 
-
+IP_ALL_COUNT=$(wc -l < "$ALL_LISTS_FILE")
 IPV4_COUNT=$(wc -l < "$IPV4_FILE")
 IPV4_CIDR_COUNT=$(wc -l < "$IPV4_CIDR_FILE")
 IPV6_CIDR_COUNT=$(wc -l < "$IPV6_CIDR_FILE")
 
 echo "--------------------------------------"
+echo "IP ALL     : $IP_ALL_COUNT"
 echo "IPv4       : $IPV4_COUNT"
 echo "IPv4 CIDR  : $IPV4_CIDR_COUNT"
 echo "IPv6 CIDR  : $IPV6_CIDR_COUNT"
