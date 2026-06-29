@@ -42,7 +42,6 @@ cp "$BASEDIR"/list.d/*.list "$BASEDIR/../list.d/"
 mv "$BASEDIR/../list.d/whitelist.list" "$BASEDIR/../list.d/$WHITELIST_FILE"
 
 i=1
-
 while IFS= read -r url; do
     # Supprime les espaces en début/fin
     url="$(echo "$url" | xargs)"
@@ -102,10 +101,6 @@ s/[[:space:]]+//g
 /^$/d
 ' "$ALL_LISTS_FILE" | LC_ALL=C sort -u -o "$ALL_LISTS_FILE"
 
-#TOTAL_LINES=$(wc -l < "$ALL_LISTS_FILE")
-#CURRENT=0
-
-
 
 
 #Calculate execution time
@@ -118,23 +113,9 @@ printf "Time execute : %02d:%02d:%02d\n" $hours $minutes $seconds
 
 echo "In progress, please wait ..."
 
-# Function for viz
-# progress_bar() {
-#     local progress=$1
-#     local total=$2
-#     local percent=$(( progress * 100 / total ))
-#     local filled=$(( percent / 2 ))
-#     local empty=$(( 50 - filled ))
-
-#     printf "\r["
-#     printf "%0.s#" $(seq 1 $filled)
-#     printf "%0.s-" $(seq 1 $empty)
-#     printf "] %d%% (%d/%d)" "$percent" "$progress" "$total"
-# }
 
 # filter the IP type line by line
 while IFS= read -r line || [[ -n "$line" ]]; do
-    #((CURRENT++))
 
     # IPv4 subnet
     if [[ $line =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,2}$ ]]; then
@@ -153,11 +134,6 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 
     fi
 
-    # only 100 lines view progress
-    #if (( CURRENT % 100 == 0 )); then
-    #    progress_bar "$CURRENT" "$TOTAL_LINES"
-    #fi
-
 done < "$ALL_LISTS_FILE"
 
 
@@ -174,10 +150,6 @@ done < "$IPV6_CIDR_FILE" | sort -u > "$tmpfile"
 
 mv "$tmpfile" "$IPV6_CIDR_FILE"
 
-
-
-# End of progress 100%
-#progress_bar "$TOTAL_LINES" "$TOTAL_LINES"
 
 
 ###### ADD sort u for ipv4, ipv4 cidr, ipv6 cidr file
@@ -202,4 +174,3 @@ minutes=$(((duration % 3600) / 60))
 seconds=$((duration % 60))
 printf "Time execute : %02d:%02d:%02d\n" $hours $minutes $seconds
 echo "Banlist Aggregator stop"
-
