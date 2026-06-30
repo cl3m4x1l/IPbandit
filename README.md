@@ -93,6 +93,15 @@ sudo dnf install -y epel-release
 sudo dnf install -y sipcalc
 ```
 
+### macOS
+
+Install all three tools :
+
+```bash
+brew install curl sipcalc grepcidr
+```
+
+
 ## Install
 
 ### Git clone project
