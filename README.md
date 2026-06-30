@@ -18,7 +18,7 @@ You can fully exploit our IDS/IPS/WAF solution on your MacOS and Linux servers (
 
 > Designed to improve the security of your critical servers. Plug blocklists to your infrastructure. A completely free Crowdsec alternative
 
-*this version 1.1.0 __Alpha__*
+*this version 1.1.0 __Beta__*
 
 Licence 
 ----
@@ -34,17 +34,20 @@ Roadmap
 - 2026-04 Version 1.0 Beta
 - 2026-05 Version 1.0 Release Candidate
 - 2026-06 Version 1.0 Stable
-- coming soon, IPV6::/64 and clean IPV4 file if is containt to Subnet file
-- coming soon, extras option Ipset / Iptables / Nftables
+- 2026-07 Version 1.1 Beta
+- Coming soon, extras option Ipset / Nftables
 
 
 Logs
 ----
-Changes for this edition 1.1.0
+V 1.1.0
 - Rename file: Subnet to CIDR 
 - Convert IPv6 only CIDR/64 
 - Add white list file
 - Removal of IPs already covered by CIDRs
+V 1.0.0
+- Init project
+- Aggregator block lists and fail2ban jail host
 
 
 # HOW TO
@@ -62,7 +65,8 @@ or the separate files :
 
 
 ## Requirements
-You must have curl, sipcacl, grepcidr to install
+You must have curl, sipcacl, grepcidr to install.
+Examples:
 
 ### Debian / Ubuntu
 
