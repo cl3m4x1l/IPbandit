@@ -61,14 +61,14 @@ while IFS= read -r url; do
 
             if gunzip -c $tmpfile > "$BASEDIR/../list.d/${i}.list"; then
                 echo "Save (ungzip) in ${i}.list"
-                cat "$BASEDIR/../list.d/${i}.list" >> "$ALL_LISTS_FILE"
+                #cat "$BASEDIR/../list.d/${i}.list" >> "$ALL_LISTS_FILE"
                 ((i++))
             else
                 echo "ERROR ungzip"
             fi
         else
             mv $tmpfile "$BASEDIR/../list.d/${i}.list"
-            cat "$BASEDIR/../list.d/${i}.list" >> "$ALL_LISTS_FILE"
+            #cat "$BASEDIR/../list.d/${i}.list" >> "$ALL_LISTS_FILE"
             echo "Save in ${i}.list"
             ((i++))
             continue
@@ -83,10 +83,8 @@ while IFS= read -r url; do
 done < "$BASEDIR/custom.txt"
 
 
-# Concatène tous les fichiers .list
+# Concat *.list -> IPbandit_all
 find "$BASEDIR/../list.d" -type f -name "*.list" -exec cat {} + >> "$ALL_LISTS_FILE"
-
-# Erase file list tmp
 rm -f $BASEDIR/../list.d/*.list
 
 echo "Download lists finished"
@@ -137,21 +135,35 @@ done < "$ALL_LISTS_FILE"
 
 
 # Convert IPv6 to subnet /64
-tmpfile=$(mktemp)
-
 while read -r ip; do
     [[ -z "$ip" ]] && continue
 
     sipcalc "$ip/64" 2>/dev/null \
         | awk -F'- ' '/Subnet/ {print $2}'
 
-done < "$IPV6_CIDR_FILE" | sort -u > "$tmpfile"
-
-mv "$tmpfile" "$IPV6_CIDR_FILE"
+done < "$IPV6_CIDR_FILE" 
 
 
+echo "Suppression des doublons..."
 
-###### ADD sort u for ipv4, ipv4 cidr, ipv6 cidr file
+# Trier et supprimer les doublons
+sort -u "$IPV4" -o "$IPV4"
+sort -u "$IPV4_CIDR" -o "$IPV4_CIDR"
+sort -u "$IPV6_CIDR" -o "$IPV6_CIDR"
+
+echo "Reconstruction de $ALL..."
+
+# Vider le fichier
+> "$ALL_LISTS_FILE"
+
+# Concaténer les fichiers
+cat "$IPV4_FILE" "$IPV4_CIDR_FILE" "$IPV6_CIDR_FILL" > "$ALL_LISTS_FILE"
+
+
+
+
+
+###### ADD sort u for ipv4, ipv4 cidr
 
 IP_ALL_COUNT=$(wc -l < "$ALL_LISTS_FILE")
 IPV4_COUNT=$(wc -l < "$IPV4_FILE")
