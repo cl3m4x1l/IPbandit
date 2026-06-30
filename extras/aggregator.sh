@@ -26,7 +26,6 @@ echo "Basedir $BASEDIR"
 
 # init files for IP
 ALL_LISTS_FILE="$BASEDIR/../list.d/IPbandit_all.txt"
-WHITELIST_FILE="$BASEDIR/../list.d/IPbandit_whitelist.txt"
 IPV4_FILE="$BASEDIR/../list.d/IPbandit_ipv4.txt"
 IPV4_CIDR_FILE="$BASEDIR/../list.d/IPbandit_ipv4_cidr.txt"
 IPV6_CIDR_FILE="$BASEDIR/../list.d/IPbandit_ipv6_cidr.txt"
@@ -38,7 +37,7 @@ IPV6_CIDR_FILE="$BASEDIR/../list.d/IPbandit_ipv6_cidr.txt"
 
 # Copy personal list files in directory extras/list.d/ into directory to run
 cp "$BASEDIR"/list.d/*.list "$BASEDIR/../list.d/"
-mv "$BASEDIR/../list.d/whitelist.list" "$BASEDIR/../list.d/$WHITELIST_FILE"
+
 
 i=1
 while IFS= read -r url; do
