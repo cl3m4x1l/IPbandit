@@ -43,7 +43,7 @@ Changes for this edition 1.1.0
 - Rename file: Subnet to CIDR 
 - Convert IPv6 only CIDR/64 
 - Add white list file
-- Coming soon: filter IPv4 for deletion if included in the CIDR file
+- Removal of IPs already covered by CIDRs
 
 
 # HOW TO
@@ -61,7 +61,37 @@ or the separate files :
 
 
 ## Requirements
-You must have curl, sipcacl to install
+You must have curl, sipcacl, grepcidr to install
+
+### Debian / Ubuntu
+
+Update repositories and install all three tools :
+
+```bash
+sudo apt update
+sudo apt install -y curl sipcalc grepcidr
+```
+
+### RedHat / AlmaLinux / Rocky Linux
+
+Install curl and grepcidr
+
+```bash
+sudo dnf install -y curl grepcidr
+```
+
+Install sipcalc
+
+```bash
+sudo dnf install -y sipcalc
+```
+
+If sipcalc is not available, activate the EPEL repository :
+
+```bash
+sudo dnf install -y epel-release
+sudo dnf install -y sipcalc
+```
 
 ## Install
 
