@@ -12,8 +12,9 @@ IPbandit is a tool that protects you from malicious IP addresses and CIDR blocks
 IPbandit aggregates several blacklists created by the community. You can select your lists, add or delete them, 
 and even create your own blacklists to block entire countries, for example.
 
-It's an aggregation of lists of malicious IP addresses to integrate with your firewalls.
-Examples : Fortinet, Palo Alto, Cisco, Checkpoint, F5, Sophos, Juniper, Mikrotik, pfSense, OPNsense, iptables, NFtables, etc...
+You can easily integrate our lists of malicious IP addresses to integrate into your firewalls. Examples: Fortinet, Palo Alto, Cisco, Checkpoint, F5, Sophos, Juniper, Mikrotik, pfSense, OPNsense, UFW, Firewalld, Iptables, NFtables, etc... 
+
+You can fully exploit our IDS/IPS/WAF solution on your MacOS and Linux servers (RedHat, AlmaLinux, Rocky Linux, Debian, Ubuntu ...).
 
 > Designed to improve the security of your critical servers. Plug blocklists to your infrastructure. A completely free Crowdsec alternative
 
