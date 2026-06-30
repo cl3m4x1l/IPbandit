@@ -17,6 +17,11 @@ if ! command -v sipcalc >/dev/null; then
         exit 1
 fi
 
+if ! command -v grepcidr >/dev/null; then
+        echo "ERROR : You need to install package grepcidr"
+        exit 1
+fi
+
 
 # Calculate execution time
 start_time=$(date +%s)
@@ -146,14 +151,22 @@ done < "$IPV6_CIDR_FILE"
 echo "Suppression des doublons..."
 
 # Trier et supprimer les doublons
-sort -u "$IPV4" -o "$IPV4"
-sort -u "$IPV4_CIDR" -o "$IPV4_CIDR"
-sort -u "$IPV6_CIDR" -o "$IPV6_CIDR"
+sort -u "$IPV4_FILE" -o "$IPV4_FILE"
+sort -u "$IPV4_CIDR_FILE" -o "$IPV4_CIDR_FILE"
+sort -u "$IPV6_CIDR_FILE" -o "$IPV6_CIDR_FILE"
+
+
+echo "Suppression des IP déjà couvertes par les CIDR..."
+if command -v grepcidr >/dev/null 2>&1; then
+    grepcidr -v -f "$IPV4_CIDR_FILE" "$IPV4_FILE" > "${IPV4}.tmp"
+    mv "${IPV4}.tmp" "$IPV4_FILE"
+fi
+
 
 echo "Reconstruction de $ALL..."
 
 # Vider le fichier
-> "$ALL_LISTS_FILE"
+cat /dev/null > "$ALL_LISTS_FILE"
 
 # Concaténer les fichiers
 cat "$IPV4_FILE" "$IPV4_CIDR_FILE" "$IPV6_CIDR_FILL" > "$ALL_LISTS_FILE"
