@@ -7,20 +7,14 @@
 # /opt/clemaxil/IPbandit/extras
 BASEDIR=$(readlink -f $0 | xargs dirname) 
 
-if ! command -v curl >/dev/null; then
-        echo "ERROR : You need to install package curl"
-        exit 1
-fi
 
-if ! command -v sipcalc >/dev/null; then
-        echo "ERROR : You need to install package sipcalc"
-        exit 1
-fi
 
-if ! command -v grepcidr >/dev/null; then
-        echo "ERROR : You need to install package grepcidr"
+for cmd in curl sipcalc grepcidr; do
+    if ! command -v "$cmd" >/dev/null 2>&1; then
+        echo "ERROR : You need to install package '$cmd' ."
         exit 1
-fi
+    fi
+done
 
 
 # Calculate execution time
