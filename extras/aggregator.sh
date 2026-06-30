@@ -165,11 +165,12 @@ if command -v grepcidr >/dev/null 2>&1; then
 fi
 
 
-echo "Reconstruction de $ALL..."
 
+echo "Vidagede $ALL_LISTS_FILE..."
 # Vider le fichier
 cat /dev/null > "$ALL_LISTS_FILE"
 
+echo "Reconstruction de $ALL_LISTS_FILE..."
 # Concaténer les fichiers
 cat "$IPV4_FILE" "$IPV4_CIDR_FILE" "$IPV6_CIDR_FILL" > "$ALL_LISTS_FILE"
 
