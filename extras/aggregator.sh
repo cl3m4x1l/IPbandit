@@ -139,13 +139,15 @@ done < "$ALL_LISTS_FILE"
 
 
 # Convert IPv6 to subnet /64
+tmpfile=$(mktemp)
+
 while read -r ip; do
     [[ -z "$ip" ]] && continue
 
     sipcalc "$ip/64" 2>/dev/null \
         | awk -F'- ' '/Subnet/ {print $2}'
 
-done < "$IPV6_CIDR_FILE" 
+done < "$IPV6_CIDR_FILE"  | sort -u > "$tmpfile"
 
 
 echo "Suppression des doublons..."
