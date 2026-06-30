@@ -25,7 +25,7 @@ fi
 
 # Calculate execution time
 start_time=$(date +%s)
-echo "Banlist Aggregator Start"
+echo "Banlist Aggregator START"
 echo "Basedir $BASEDIR"
 
 
@@ -91,7 +91,7 @@ done < "$BASEDIR/custom.txt"
 find "$BASEDIR/../list.d" -type f -name "*.list" -exec cat {} + >> "$ALL_LISTS_FILE"
 rm -f $BASEDIR/../list.d/*.list
 
-echo "Download lists finished"
+
 
 
 # clean all lines
@@ -104,7 +104,7 @@ s/[[:space:]]+//g
 
 
 
-#Calculate execution time
+echo "Download lists finished."
 end_time=$(date +%s)
 duration=$((end_time - start_time))
 hours=$((duration / 3600))
@@ -115,7 +115,7 @@ printf "Time execute : %02d:%02d:%02d\n" $hours $minutes $seconds
 echo "In progress, please wait ..."
 
 
-# filter the IP type line by line
+echo "Sorting ips of ipv4 ipv6 cidr format ..."
 while IFS= read -r line || [[ -n "$line" ]]; do
 
     # IPv4 subnet
@@ -138,7 +138,8 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 done < "$ALL_LISTS_FILE"
 
 
-# Convert IPv6 to subnet /64
+
+echo "Convert IPv6 to subnet /64 ..."
 tmpfile=$(mktemp)
 
 while read -r ip; do
@@ -150,15 +151,13 @@ while read -r ip; do
 done < "$IPV6_CIDR_FILE"  | sort -u > "$tmpfile"
 
 
-echo "Suppression des doublons..."
-
-# Trier et supprimer les doublons
+echo "Removing duplicates ..."
 sort -u "$IPV4_FILE" -o "$IPV4_FILE"
 sort -u "$IPV4_CIDR_FILE" -o "$IPV4_CIDR_FILE"
 sort -u "$IPV6_CIDR_FILE" -o "$IPV6_CIDR_FILE"
 
 
-echo "Suppression des IP déjà couvertes par les CIDR..."
+echo "Removal of IPs already covered by CIDRs ..."
 if command -v grepcidr >/dev/null 2>&1; then
     grepcidr -v -f "$IPV4_CIDR_FILE" "$IPV4_FILE" > "${IPV4}.tmp"
     mv "${IPV4}.tmp" "$IPV4_FILE"
@@ -166,25 +165,17 @@ fi
 
 
 
-echo "Vidagede $ALL_LISTS_FILE..."
-# Vider le fichier
-cat /dev/null > "$ALL_LISTS_FILE"
-
-echo "Reconstruction de $ALL_LISTS_FILE..."
-# Concaténer les fichiers
-cat "$IPV4_FILE" "$IPV4_CIDR_FILE" "$IPV6_CIDR_FILL" > "$ALL_LISTS_FILE"
+echo "Rebuild the files containing all the IPS and CIDR ..."
+cat "$IPV4_FILE" "$IPV4_CIDR_FILE" "$IPV6_CIDR_FILE" > "$ALL_LISTS_FILE"
 
 
-
-
-
-###### ADD sort u for ipv4, ipv4 cidr
 
 IP_ALL_COUNT=$(wc -l < "$ALL_LISTS_FILE")
 IPV4_COUNT=$(wc -l < "$IPV4_FILE")
 IPV4_CIDR_COUNT=$(wc -l < "$IPV4_CIDR_FILE")
 IPV6_CIDR_COUNT=$(wc -l < "$IPV6_CIDR_FILE")
-
+echo "--------------------------------------"
+echo " Output Result"
 echo "--------------------------------------"
 echo "IP ALL     : $IP_ALL_COUNT"
 echo "IPv4       : $IPV4_COUNT"
@@ -200,4 +191,4 @@ hours=$((duration / 3600))
 minutes=$(((duration % 3600) / 60))
 seconds=$((duration % 60))
 printf "Time execute : %02d:%02d:%02d\n" $hours $minutes $seconds
-echo "Banlist Aggregator stop"
+echo "Banlist Aggregator STOP"
