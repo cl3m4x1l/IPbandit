@@ -44,7 +44,7 @@ V 1.1.0
 - Rename file: Subnet to CIDR 
 - Convert IPv6 only CIDR/64 
 - Add white list file
-- Removal of IPs already covered by CIDRs\
+- Removal of IPs already covered by CIDRs
 
 V 1.0.0
 - Init project
