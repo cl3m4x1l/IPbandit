@@ -34,7 +34,7 @@ Roadmap
 - 2026-04 Version 1.0 Beta
 - 2026-05 Version 1.0 Release Candidate
 - 2026-06 Version 1.0 Stable
-- 2026-07 Version 1.1 Beta
+- 2026-07 Version 1.1 Stable
 - Coming soon, extras option Ipset / Nftables
 
 
