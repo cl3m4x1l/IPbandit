@@ -45,6 +45,7 @@ V 1.1.0
 - Convert IPv6 only CIDR/64 
 - Add white list file
 - Removal of IPs already covered by CIDRs\
+
 V 1.0.0
 - Init project
 - Aggregator block lists and fail2ban jail host
