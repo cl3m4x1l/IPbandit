@@ -14,11 +14,11 @@ and even create your own blacklists to block entire countries, for example.
 
 You can easily integrate our lists of malicious IP addresses to integrate into your firewalls. Examples: Fortinet, Palo Alto, Cisco, Checkpoint, F5, Sophos, Juniper, Mikrotik, pfSense, OPNsense, UFW, Firewalld, Iptables, NFtables, etc... 
 
-You can fully exploit our IDS/IPS/WAF solution on your MacOS and Linux servers (RedHat, AlmaLinux, Rocky Linux, Debian, Ubuntu ...).
+You can fully exploit our IDS/IPS/WAF solution on your MacOS, BSD and Linux servers (RedHat, AlmaLinux, Rocky Linux, Debian, Ubuntu ...).
 
-> Designed to improve the security of your critical servers. Plug blocklists to your infrastructure. A completely free Crowdsec alternative
+> Designed to improve the security of your critical servers. Plug blocklists to your infrastructure.
 
-*this version 1.1.0 __Beta__*
+*this version 1.1.0 __Stable__*
 
 Licence 
 ----
@@ -44,7 +44,7 @@ V 1.1.0
 - Rename file: Subnet to CIDR 
 - Convert IPv6 only CIDR/64 
 - Add white list file
-- Removal of IPs already covered by CIDRs
+- Removal of IPs already covered by CIDRs\
 V 1.0.0
 - Init project
 - Aggregator block lists and fail2ban jail host
