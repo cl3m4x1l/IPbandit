@@ -10,12 +10,12 @@
 
 # Community Blocklist Aggregator
 
-IPbandit is a tool that protects you against malicious IP addresses and CIDR blocks (IPv4/IPv6). These blocklists are designed to stop threats before they reach your network and are continuously updated to strengthen your firewall and WAF instances.
+IPbandit is a tool that protects you against malicious IP addresses and CIDR blocks (IPv4/IPv6). These blocklists are designed to stop threats before they reach your network and are continuously updated to strengthen your firewall and WAF instances. 
 
 IPbandit aggregates multiple community-generated blacklists. You can select, add, or remove lists,
 and even create your own blacklists—for instance, to block entire countries.
 
-You can easily integrate our malicious IP lists into your firewalls. Examples include: Fortinet, Palo Alto, Cisco, Checkpoint, F5, Sophos, Juniper, Mikrotik, pfSense, OPNsense, UFW, Firewalld, Iptables, NFtables, etc.
+You can easily integrate our malicious IP lists into your firewalls. Examples include: Fortinet, Palo Alto, Cisco, Checkpoint, F5, Sophos, Juniper, Mikrotik, pfSense, OPNsense, UFW, Firewalld, Iptables, NFtables, etc. Aggregation of lists of malicious IP addresses such as scanners and bruteforce, therefore ONLY to be blocked in the WAN > LAN/DMZ direction
 
 > Designed to enhance the security of your critical infrastructure (servers, VPS, containers, websites, WordPress, Apache, Nginx, Caddy, exposed infrastructure, APIs, etc.) across macOS, BSD, and Linux (RedHat, AlmaLinux, Rocky Linux, Debian, Ubuntu, etc.).
 
