@@ -8,6 +8,8 @@
 <img width="33%" src="https://www.infogiciel.com/ipbandit/IPbandit_logo_300x300.png">
 </p>
 
+# Community Blocklist Aggregator
+
 IPbandit is a tool that protects you against malicious IP addresses and CIDR blocks (IPv4/IPv6). These blocklists are designed to stop threats before they reach your network and are continuously updated to strengthen your firewall and WAF instances.
 
 IPbandit aggregates multiple community-generated blacklists. You can select, add, or remove lists,
