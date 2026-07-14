@@ -8,17 +8,19 @@
 <img width="33%" src="https://www.infogiciel.com/ipbandit/IPbandit_logo_300x300.png">
 </p>
 
-IPbandit is a tool that protects you from malicious IP addresses and CIDR blocks (IPv4/IPv6).\
-IPbandit aggregates several blacklists created by the community. You can select your lists, add or delete them, 
-and even create your own blacklists to block entire countries, for example.
+IPbandit is a tool that protects you against malicious IP addresses and CIDR blocks (IPv4/IPv6). These blocklists are designed to stop threats before they reach your network and are continuously updated to strengthen your firewall and WAF instances.
 
-You can easily integrate our lists of malicious IP addresses to integrate into your firewalls. Examples: Fortinet, Palo Alto, Cisco, Checkpoint, F5, Sophos, Juniper, Mikrotik, pfSense, OPNsense, UFW, Firewalld, Iptables, NFtables, etc... 
+IPbandit aggregates multiple community-generated blacklists. You can select, add, or remove lists,
+and even create your own blacklists—for instance, to block entire countries.
 
-You can fully exploit our IDS/IPS/WAF solution on your MacOS, BSD and Linux servers (RedHat, AlmaLinux, Rocky Linux, Debian, Ubuntu ...).
+You can easily integrate our malicious IP lists into your firewalls. Examples include: Fortinet, Palo Alto, Cisco, Checkpoint, F5, Sophos, Juniper, Mikrotik, pfSense, OPNsense, UFW, Firewalld, Iptables, NFtables, etc.
 
-> Designed to improve the security of your critical servers. Plug blocklists to your infrastructure.
+> Designed to enhance the security of your critical infrastructure (servers, VPS, containers, websites, WordPress, Apache, Nginx, Caddy, exposed infrastructure, APIs, etc.) across macOS, BSD, and Linux (RedHat, AlmaLinux, Rocky Linux, Debian, Ubuntu, etc.).
 
-*this version 1.1.0 __Stable__*
+Thank you to all the people and communities who are participating in the security project and sharing their lists for the good of all.
+
+*Version 1.1.1 __Alpha__*
+For production see the latest stable version ici: https://github.com/cl3m4x1l/IPbandit/releases
 
 Licence 
 ----
@@ -35,7 +37,7 @@ Roadmap
 - 2026-05 Version 1.0 Release Candidate
 - 2026-06 Version 1.0 Stable
 - 2026-07 Version 1.1 Stable
-- Coming soon, extras option Ipset / Nftables
+- In progress, extras option Ipset / Nftables and more
 
 
 Logs
