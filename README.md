@@ -19,7 +19,7 @@ You can easily integrate our malicious IP lists into your firewalls. Examples in
 
 Thank you to all the people and communities who are participating in the security project and sharing their lists for the good of all.
 
-*Version 1.1.1 __Alpha__*
+*This version is 1.1.1 __Alpha__*\
 For production see the latest stable version ici: https://github.com/cl3m4x1l/IPbandit/releases
 
 Licence 
