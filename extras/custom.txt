@@ -4,7 +4,9 @@
 http://wget-mirrors.uceprotect.net/rbldnsd-all/dnsbl-1.uceprotect.net.gz
 http://wget-mirrors.uceprotect.net/rbldnsd-all/dnsbl-2.uceprotect.net.gz
 https://iplists.firehol.org/files/firehol_abusers_1d.netset
+https://iplists.firehol.org/files/firehol_abusers_30d.netset
 https://iplists.firehol.org/files/abuseipdb_1d.ipset
+https://iplists.firehol.org/files/abuseipdb_30d.ipset
 https://iplists.firehol.org/files/blocklist_de.ipset
 https://iplists.firehol.org/files/blocklist_de_apache.ipset
 https://iplists.firehol.org/files/blocklist_de_bruteforce.ipset
