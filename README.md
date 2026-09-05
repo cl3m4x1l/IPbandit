@@ -44,6 +44,9 @@ Roadmap
 
 Logs
 ----
+V 1.1.1 alpha
+- Update custom lists
+
 V 1.1.0
 - Rename file: Subnet to CIDR 
 - Convert IPv6 only CIDR/64 
