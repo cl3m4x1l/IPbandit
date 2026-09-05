@@ -198,7 +198,7 @@ __Important !__ Name your files with the .list extension.
 
 
 ## External lists
-You can choose which lists to download by editing the IPbandit_custom.txt file.
+You can choose which lists to download by editing the extras/list.d/custom.txt file.
 
 
 # EXTRAS
